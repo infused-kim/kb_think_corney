@@ -1,0 +1,66 @@
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 2
+  py: ky + 2
+points:
+  zones:
+
+    # Main Key Matrix
+    matrix:
+      key:
+        padding: 1ky
+        spread: 1kx
+      columns:
+        outer:
+        pinky:
+        ring:
+          key.stagger: 4.75
+        middle:
+          key.stagger: 2.375
+        index:
+          key.stagger: -2.375
+        inner:
+          key.stagger: -2.375
+      rows:
+        bottom:
+        home:
+        top:
+
+    # Thumb Cluster
+    thumbs:
+      key:        padding: 1ky
+        spread: 1kx
+      anchor:
+        ref: matrix_index_bottom
+        shift: [-9.5, -19.625]
+      columns:
+        outer:
+        home:
+            key:
+              splay: -15
+              spread: 1kx+2
+              stagger: -2.75
+        inner:
+            key:
+              width: 1.5kx
+              splay: 75
+              spread: 1kx+3.4
+              stagger: 1.7
+      rows:
+        # Thumbs only have one row.
+        cluster:
+
+outlines:
+  # Pure key outline.
+  raw:
+    - what: rectangle
+      where: true
+      size: [px, py]
+  # Key outlines with 0.5mm removed to show key overlaps.
+  keys:
+    - what: rectangle
+      where: true
+      size: [kx-0.5,ky-0.5]
