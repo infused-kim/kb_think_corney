@@ -1,0 +1,5 @@
+# OS Files
+.DS_Store
+
+# Ergogen generated files
+ergogen/output
