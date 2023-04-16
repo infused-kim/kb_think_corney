@@ -2,6 +2,8 @@ units:
   # Proxy Spacing Variables
   kx: cx
   ky: cy
+  kxo: 0.5 * cx
+  kyo: 0.5 * cy
   # Padding Variables
   px: kx + 2
   py: ky + 2
@@ -20,6 +22,7 @@ points:
       key:
         padding: 1ky
         spread: 1kx
+
       columns:
         outer:
         pinky:
@@ -31,6 +34,7 @@ points:
           key.stagger: -2.375
         inner:
           key.stagger: -2.375
+
       rows:
         bottom:
         home:
@@ -88,44 +92,45 @@ outlines:
   board:
     - what: polygon
       operation: stack
+      fillet: 1
       points:
 
         # Top
         # Outer
         - ref: matrix_outer_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_outer_top
-          shift: [+0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Pinky
         - ref: matrix_pinky_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_pinky_top
-          shift: [+0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Ring
         - ref: matrix_ring_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_ring_top
-          shift: [+0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Middle
         - ref: matrix_middle_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_middle_top
-          shift: [0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Index
         - ref: matrix_index_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_index_top
-          shift: [0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Inner
         - ref: matrix_inner_top
-          shift: [-0.5kx,0.5ky]
+          shift: [-kxo, +kyo]
         - ref: matrix_inner_top
-          shift: [0.5kx,0.5ky]
+          shift: [+kxo, +kyo]
 
         # Controller
         - ref: mcu
@@ -136,27 +141,26 @@ outlines:
         # Right Side
         # Inner Thumb
         - ref: thumbs_inner_cluster
-          shift: [0.5 * 1.5kx,-0.5ky]
+          shift: [+1.5kxo, -kyo]
         - ref: thumbs_inner_cluster
-          shift: [-0.5 * 1.5kx,-0.5ky]
+          shift: [-1.5kxo, -kyo]
 
         # Bottom
         # Inner thumb
         - ref: thumbs_inner_cluster
-          shift: [-0.5 * 1.5kx,0.5ky]
+          shift: [-1.5kxo, +kyo]
 
         # Outer Thumb
         - ref: thumbs_outer_cluster
-          shift: [-0.5kx,-0.5ky]
+          shift: [-kxo, -kyo]
 
         # Pinky y and ring x
         - ref: matrix_pinky_bottom
-          shift: [0.5kx + 1kx,-0.5ky]
+          shift: [kxo + 1kx, -kyo]
 
         # Outer
         - ref: matrix_outer_bottom
-          shift: [-0.5kx,-0.5ky]
-      fillet: 0
+          shift: [-kxo, -kyo]
 
   # Combination preview showing outline and keys.
   combo:
