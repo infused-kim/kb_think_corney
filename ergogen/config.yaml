@@ -225,9 +225,7 @@ pcbs:
 
       # Controller Area
       promicro:
-        what: promicro
-        params:
-          orientation: "down"
+        what: promicro_pretty
         where:
           ref: mcu
           shift: [0,0]
