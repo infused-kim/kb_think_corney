@@ -5,6 +5,13 @@ units:
   # Padding Variables
   px: kx + 2
   py: ky + 2
+
+  # Other constants
+  mcu_x: 18 + 2.75
+  mcu_y: 33
+  mcu_xo: 0.5 * mcu_x
+  mcu_yo: 0.5 * mcu_y
+
 points:
   zones:
 
@@ -53,6 +60,15 @@ points:
       rows:
         # Thumbs only have one row.
         cluster:
+
+    controller:
+      anchor:
+        ref: matrix_inner_top
+        shift: [kxo + mcu_xo, kyo -2.25 - mcu_yo]
+      key:
+        name: mcu
+        width: mcu_x
+        height: mcu_y
 
 outlines:
 
@@ -112,10 +128,10 @@ outlines:
           shift: [0.5kx,0.5ky]
 
         # Controller
-        - ref: matrix_inner_top
-          shift: [0.5kx,0.5ky - 2.25]
-        - ref: matrix_inner_top
-          shift: [0.5kx + 20.75,0.5ky - 2.25]
+        - ref: mcu
+          shift: [-mcu_xo, +mcu_yo]
+        - ref: mcu
+          shift: [+mcu_xo, +mcu_yo]
 
         # Right Side
         # Inner Thumb
