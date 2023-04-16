@@ -31,7 +31,8 @@ points:
 
     # Thumb Cluster
     thumbs:
-      key:        padding: 1ky
+      key:
+        padding: 1ky
         spread: 1kx
       anchor:
         ref: matrix_index_bottom
@@ -54,13 +55,95 @@ points:
         cluster:
 
 outlines:
+
   # Pure key outline.
   raw:
     - what: rectangle
       where: true
       size: [px, py]
+
   # Key outlines with 0.5mm removed to show key overlaps.
   keys:
     - what: rectangle
       where: true
       size: [kx-0.5,ky-0.5]
+
+  # Actual outline of the board
+  board:
+    - what: polygon
+      operation: stack
+      points:
+
+        # Top
+        # Outer
+        - ref: matrix_outer_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_outer_top
+          shift: [+0.5kx,0.5ky]
+
+        # Pinky
+        - ref: matrix_pinky_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_pinky_top
+          shift: [+0.5kx,0.5ky]
+
+        # Ring
+        - ref: matrix_ring_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_ring_top
+          shift: [+0.5kx,0.5ky]
+
+        # Middle
+        - ref: matrix_middle_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_middle_top
+          shift: [0.5kx,0.5ky]
+
+        # Index
+        - ref: matrix_index_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_index_top
+          shift: [0.5kx,0.5ky]
+
+        # Inner
+        - ref: matrix_inner_top
+          shift: [-0.5kx,0.5ky]
+        - ref: matrix_inner_top
+          shift: [0.5kx,0.5ky]
+
+        # Controller
+        - ref: matrix_inner_top
+          shift: [0.5kx,0.5ky - 2.25]
+        - ref: matrix_inner_top
+          shift: [0.5kx + 20.75,0.5ky - 2.25]
+
+        # Right Side
+        # Inner Thumb
+        - ref: thumbs_inner_cluster
+          shift: [0.5 * 1.5kx,-0.5ky]
+        - ref: thumbs_inner_cluster
+          shift: [-0.5 * 1.5kx,-0.5ky]
+
+        # Bottom
+        # Inner thumb
+        - ref: thumbs_inner_cluster
+          shift: [-0.5 * 1.5kx,0.5ky]
+
+        # Outer Thumb
+        - ref: thumbs_outer_cluster
+          shift: [-0.5kx,-0.5ky]
+
+        # Pinky y and ring x
+        - ref: matrix_pinky_bottom
+          shift: [0.5kx + 1kx,-0.5ky]
+
+        # Outer
+        - ref: matrix_outer_bottom
+          shift: [-0.5kx,-0.5ky]
+      fillet: 0
+
+  # Combination preview showing outline and keys.
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
