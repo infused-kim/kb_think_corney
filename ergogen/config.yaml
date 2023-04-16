@@ -213,6 +213,9 @@ pcbs:
           hotswap: true
           from: "{{column_net}}"
           to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: -180
 
       diode:
         what: diode
@@ -221,7 +224,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
-          shift: [0, -5]
+          shift: [0, 5]
 
       # Controller Area
       promicro:
