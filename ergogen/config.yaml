@@ -19,51 +19,79 @@ points:
 
     # Main Key Matrix
     matrix:
+
+      # Fix placement on KiCAD sheet.
+      anchor:
+        shift: [100, -100]
+
       key:
         padding: 1ky
         spread: 1kx
+        tags: key
 
       columns:
         outer:
+          key:
+            column_net: P21
         pinky:
+          key:
+            column_net: P20
         ring:
-          key.stagger: 4.75
+          key:
+            stagger: 4.75
+            column_net: P19
         middle:
-          key.stagger: 2.375
+          key:
+            stagger: 2.375
+            column_net: P18
         index:
-          key.stagger: -2.375
+          key:
+            stagger: -2.375
+            column_net: P15
         inner:
-          key.stagger: -2.375
+          key:
+            stagger: -2.375
+            column_net: P14
 
       rows:
         bottom:
+          row_net: P6
         home:
+          row_net: P5
         top:
+          row_net: P4
 
     # Thumb Cluster
     thumbs:
       key:
         padding: 1ky
         spread: 1kx
+        tags: key
       anchor:
         ref: matrix_index_bottom
         shift: [-9.5, -19.625]
       columns:
         outer:
+            key:
+              column_net: P18
         home:
             key:
               splay: -15
               spread: 1kx+2
               stagger: -2.75
+              column_net: P15
         inner:
             key:
               width: 1.5kx
               splay: 75
               spread: 1kx+3.4
               stagger: 1.7
+              tags: key_long
+              column_net: P14
       rows:
         # Thumbs only have one row.
         cluster:
+          row_net: P7
 
     controller:
       anchor:
@@ -167,3 +195,61 @@ outlines:
     - name: board
     - operation: subtract
       name: keys
+
+pcbs:
+  think_corney:
+    outlines:
+      main:
+        outline: board
+    footprints:
+
+      # Key Area
+      choc_hotswap:
+        what: choc
+        where: [key, key_long]
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
+      diode:
+        what: diode
+        where: [key, key_long]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+
+      # Controller Area
+      promicro:
+        what: promicro
+        params:
+          orientation: "down"
+        where:
+          ref: mcu
+          shift: [0,0]
+          rotate: -90
+
+      oled:
+        what: oled
+        params:
+          side: "F"
+          SDA: P2
+          SCL: P3
+        where:
+          ref: mcu
+          shift: [-6, -mcu_yo - 3]
+          rotate: 90
+
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref: mcu
+          shift: [0, -mcu_yo - 8]
+          rotate: -90
