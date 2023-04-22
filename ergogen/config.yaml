@@ -248,23 +248,25 @@ pcbs:
           shift: [0,0]
           rotate: -90
 
-      oled:
-        what: oled
+      # test:
+      #   what: oled
+      #   params:
+      #     SDA: "P1"
+      #     SCL: "P2"
+      #   where:
+      #     ref: mcu
+      #     shift: [-6, -mcu_yo - 3]
+      #     rotate: 90
+
+      display:
+        what: nice_view
         params:
           side: "F"
-          SDA: P2
-          SCL: P3
+          MOSI: P2
+          SCK: P3
+          CS: P9
+          show_labels: true
         where:
           ref: mcu
-          shift: [-6, -mcu_yo - 3]
-          rotate: 90
-
-      reset:
-        what: button
-        params:
-          from: GND
-          to: RST
-        where:
-          ref: mcu
-          shift: [0, -mcu_yo - 8]
-          rotate: -90
+          shift: [0, -mcu_yo - 5]
+          rotate: 0
