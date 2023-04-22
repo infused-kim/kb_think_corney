@@ -206,11 +206,25 @@ pcbs:
       # Key Area
       choc_hotswap:
         what: choc
-        where: [key, key_long]
+        where: [key]
         params:
           keycaps: true
           reverse: true
           hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: -180
+
+      choc_hotswap_1_5u:
+        what: choc
+        where: [key_long]
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+          show_1_5u_outline: true
           from: "{{column_net}}"
           to: "{{colrow}}"
         adjust:
