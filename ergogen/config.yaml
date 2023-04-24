@@ -271,10 +271,23 @@ pcbs:
           shift: [0, -mcu_yo - 5]
           rotate: 0
 
+      conn_battery:
+        what: conn_molex_pico_ezmate_1x02
+        params:
+          reverse: true
+          pad_1: BAT_P
+          pad_2: GND
+        where:
+          ref: mcu
+          shift: [0, -mcu_yo - 15]
+          rotate: 180
+
       power_switch:
         what: power_switch
         params:
           reverse: true
+          from: BAT_P
+          to: RAW
         where:
           ref: mcu
           shift: [6.5, -mcu_yo - 15]
