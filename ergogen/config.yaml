@@ -4,6 +4,7 @@ units:
   ky: cy
   kxo: 0.5 * cx
   kyo: 0.5 * cy
+
   # Padding Variables
   px: kx + 2
   py: ky + 2
@@ -261,7 +262,6 @@ pcbs:
       display:
         what: nice_view
         params:
-          side: "F"
           MOSI: P2
           SCK: P3
           CS: P9
@@ -270,3 +270,22 @@ pcbs:
           ref: mcu
           shift: [0, -mcu_yo - 5]
           rotate: 0
+
+      power_switch:
+        what: power_switch
+        params:
+          reverse: true
+        where:
+          ref: mcu
+          shift: [6.5, -mcu_yo - 15]
+          rotate: 0
+
+      # reset:
+      #   what: button
+      #   params:
+      #     from: GND
+      #     to: RST
+      #   where:
+      #     ref: mcu
+      #     shift: [0, -mcu_yo - 8]
+      #     rotate: -90
