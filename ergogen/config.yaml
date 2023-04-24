@@ -279,17 +279,32 @@ pcbs:
           pad_2: GND
         where:
           ref: mcu
-          shift: [0, -mcu_yo - 15]
+          shift: [0, -mcu_yo - 16.35]
           rotate: 180
+
+      pads_bat:
+        what: pads
+        params:
+          reverse: true
+          width: 1.25
+          height: 2.5
+          space: 1.25
+          pads: 2
+          net_1: BAT_P
+          net_2: GND
+        where:
+          ref: mcu
+          shift: [0, -mcu_yo - 12]
+          rotate: -180
 
       icon_bat:
         what: icon_bat
         params:
           reverse: true
-          spacing: 2.9
+          spacing: 1.5
         where:
           ref: mcu
-          shift: [0, -mcu_yo - 11.25]
+          shift: [0, -mcu_yo - 10]
           rotate: 180
 
       conn_trackpoint:
@@ -302,6 +317,30 @@ pcbs:
           pad_3: TP_SDA
           pad_4: TP_RST
           pad_5: TP_VCC
+        where:
+          ref: mcu
+          shift: [-6, -mcu_yo - 15]
+          rotate: -90
+
+      pads_trackpoint:
+        what: pads
+        params:
+          reverse: true
+          width: 1
+          height: 2
+          space: 1
+          pads: 5
+          net_1: TP_GND
+          net_2: TP_SCL
+          net_3: TP_SDA
+          net_4: TP_RST
+          net_5: TP_VCC
+          label_1: GND
+          label_2: SCL
+          label_3: SDA
+          label_4: RST
+          label_5: VCC
+          label_at_bottom: true
         where:
           ref: mcu
           shift: [-6, -mcu_yo - 15]
