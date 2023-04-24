@@ -282,6 +282,16 @@ pcbs:
           shift: [0, -mcu_yo - 15]
           rotate: 180
 
+      icon_bat:
+        what: icon_bat
+        params:
+          reverse: true
+          spacing: 2.9
+        where:
+          ref: mcu
+          shift: [0, -mcu_yo - 11.25]
+          rotate: 180
+
       conn_trackpoint:
         what: conn_molex_pico_ezmate_1x05
         params:
