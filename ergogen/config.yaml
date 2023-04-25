@@ -244,6 +244,38 @@ pcbs:
       # Controller Area
       promicro:
         what: promicro_pretty
+        params:
+          show_labels: true
+          label_layer: 'SilkS'
+
+          # Columns
+          P21_label: 'C0'  # Outer
+          P20_label: 'C1'  # Pinky
+          P19_label: 'C2'  # Ring
+          P18_label: 'C3'  # Middle
+          P15_label: 'C4'  # Index
+          P14_label: 'C5'  # Inner
+
+          # Rows
+          P4_label: 'R1'  # Top
+          P5_label: 'R2'  # Home
+          P6_label: 'R3'  # Bottom
+          P7_label: 'R4'  # Thumb
+
+          # Display
+          P2_label: 'DPD'  # Data
+          P3_label: 'DPC'  # Clock
+          P9_label: 'DP3'  # Nice!View CS
+
+          # Trackpoint
+          P16_label: 'TPC'  # Clock
+          P10_label: 'TPD'  # Data
+
+          # Unused, but potential uses:
+          # P1: 'U1'  # Encoder 1
+          # P0: 'U0'  # Encoder 2
+          # P8: 'U8'  # Num Row
+
         where:
           ref: mcu
           shift: [0,0]
