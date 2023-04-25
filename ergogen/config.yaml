@@ -268,7 +268,7 @@ pcbs:
           show_labels: true
         where:
           ref: mcu
-          shift: [0, -mcu_yo - 5]
+          shift: [0, -mcu_yo - 2]
           rotate: 0
 
       conn_battery:
@@ -355,6 +355,17 @@ pcbs:
         where:
           ref: mcu
           shift: [6.5, -mcu_yo - 15]
+          rotate: 0
+
+      reset_switch:
+        what: switch_reset
+        params:
+          reverse: true
+          from: GND
+          to: RST
+        where:
+          ref: mcu
+          shift: [6.5, -mcu_yo - 7.75]
           rotate: 0
 
       # reset:
