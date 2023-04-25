@@ -33,34 +33,34 @@ points:
       columns:
         outer:
           key:
-            column_net: P21
+            column_net: C0
         pinky:
           key:
-            column_net: P20
+            column_net: C1
         ring:
           key:
             stagger: 4.75
-            column_net: P19
+            column_net: C2
         middle:
           key:
             stagger: 2.375
-            column_net: P18
+            column_net: C3
         index:
           key:
             stagger: -2.375
-            column_net: P15
+            column_net: C4
         inner:
           key:
             stagger: -2.375
-            column_net: P14
+            column_net: C5
 
       rows:
         bottom:
-          row_net: P6
+          row_net: R3
         home:
-          row_net: P5
+          row_net: R2
         top:
-          row_net: P4
+          row_net: R1
 
     # Thumb Cluster
     thumbs:
@@ -74,13 +74,13 @@ points:
       columns:
         outer:
             key:
-              column_net: P18
+              column_net: C3
         home:
             key:
               splay: -15
               spread: 1kx+2
               stagger: -2.75
-              column_net: P15
+              column_net: C4
         inner:
             key:
               width: 1.5kx
@@ -88,11 +88,11 @@ points:
               spread: 1kx+3.4
               stagger: 1.7
               tags: key_long
-              column_net: P14
+              column_net: C5
       rows:
         # Thumbs only have one row.
         cluster:
-          row_net: P7
+          row_net: R4
 
     controller:
       anchor:
@@ -248,33 +248,34 @@ pcbs:
           show_labels: true
           label_layer: 'SilkS'
 
-          # Columns
-          P21_label: 'C0'  # Outer
-          P20_label: 'C1'  # Pinky
-          P19_label: 'C2'  # Ring
-          P18_label: 'C3'  # Middle
-          P15_label: 'C4'  # Index
-          P14_label: 'C5'  # Inner
+          # Pin Assignments (Controller on top facing down)
+          # Right Side
+          P1: 'F1'    # Free, but could be Encoder 1
+          P0: 'F0'    # Free, but could be Encoder 2
+          # GND
+          # GND
+          P2: 'DPD'   # Display Data
+          P3: 'DPC'   # Display Clock
+          P4: 'R1'    # Row Top
+          P5: 'R2'    # Row Home
+          P6: 'R3'    # Row Bottom
+          P7: 'R4'    # Row Thumb
+          P8: 'F8'    # Free, but could be Num Row
+          P9: 'DPE'   # Display CS (nice!view only)
 
-          # Rows
-          P4_label: 'R1'  # Top
-          P5_label: 'R2'  # Home
-          P6_label: 'R3'  # Bottom
-          P7_label: 'R4'  # Thumb
-
-          # Display
-          P2_label: 'DPD'  # Data
-          P3_label: 'DPC'  # Clock
-          P9_label: 'DP3'  # Nice!View CS
-
-          # Trackpoint
-          P16_label: 'TPC'  # Clock
-          P10_label: 'TPD'  # Data
-
-          # Unused, but potential uses:
-          # P1: 'U1'  # Encoder 1
-          # P0: 'U0'  # Encoder 2
-          # P8: 'U8'  # Num Row
+          # Left Side
+          # RAW       # Battery Pos
+          # GND       # Ground / Battery Neg
+          # RST       # Reset pin
+          # VCC       # External Power
+          P21: 'C0'   # Column Outer
+          P20: 'C1'   # Column Pinky
+          P19: 'C2'   # Column Ring
+          P18: 'C3'   # Column Middle
+          P15: 'C4'   # Column Index
+          P14: 'C5'   # Column Inner
+          P16: 'TPD'  # Trackpoint Clock
+          P10: 'TPC'  # Trackpoint Data
 
         where:
           ref: mcu
@@ -294,9 +295,9 @@ pcbs:
       display:
         what: nice_view
         params:
-          MOSI: P2
-          SCK: P3
-          CS: P9
+          MOSI: DPD
+          SCK: DPC
+          CS: DPE
           show_labels: true
         where:
           ref: mcu
