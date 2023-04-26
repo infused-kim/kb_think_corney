@@ -1,11 +1,9 @@
 units:
-  # Proxy Spacing Variables
+  # Key spacing variables
   kx: cx
   ky: cy
   kxo: 0.5 * cx
   kyo: 0.5 * cy
-
-  # Padding Variables
   px: kx + 2
   py: ky + 2
 
