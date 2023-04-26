@@ -243,7 +243,7 @@ pcbs:
 
       # Controller Area
       promicro:
-        what: promicro_pretty
+        what: nice_nano_pretty
         params:
           show_labels: true
           label_layer: 'SilkS'
