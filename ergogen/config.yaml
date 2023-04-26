@@ -19,6 +19,12 @@ units:
   mcu_xo: 0.5 * mcu_x
   mcu_yo: 0.5 * mcu_y + 0.5 * mcu_overhang_y
 
+  # Nice!View display
+  disp_x: 14
+  disp_y: 36
+  disp_xo: 0.5 * disp_x
+  disp_yo: 0.5 * disp_y
+
 points:
   zones:
 
@@ -106,6 +112,15 @@ points:
         name: mcu
         width: mcu_x
         height: mcu_y
+
+    display:
+      anchor:
+        ref: mcu
+        shift: [0, + mcu_yo - disp_yo ]
+      key:
+        name: disp
+        width: disp_x
+        height: disp_y
 
 outlines:
 
@@ -286,27 +301,17 @@ pcbs:
           shift: [0,0]
           rotate: -90
 
-      # test:
-      #   what: oled
-      #   params:
-      #     SDA: "P1"
-      #     SCL: "P2"
-      #   where:
-      #     ref: mcu
-      #     shift: [-6, -mcu_yo - 3]
-      #     rotate: 90
-
       display:
         what: nice_view
         params:
+          reverse: true
           MOSI: DPD
           SCK: DPC
           CS: DPE
           show_labels: true
+          jumpers_at_bottom: true
         where:
-          ref: mcu
-          shift: [0, -mcu_yo - 2]
-          rotate: 0
+          ref: disp
 
       conn_battery:
         what: conn_molex_pico_ezmate_1x02
