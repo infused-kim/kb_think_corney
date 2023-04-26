@@ -9,11 +9,15 @@ units:
   px: kx + 2
   py: ky + 2
 
-  # Other constants
-  mcu_x: 18 + 2.75
-  mcu_y: 33
+  # Nice Nano
+  # The nice nano footprint's center doesn't account
+  # for the 2.54mm "overhang" of the PCB beyond the pins.
+  mcu_overhang_y: 2.54
+  mcu_spacing_x: 2.72
+  mcu_x: 17.78 + mcu_spacing_x
+  mcu_y: 30.48 + mcu_overhang_y
   mcu_xo: 0.5 * mcu_x
-  mcu_yo: 0.5 * mcu_y
+  mcu_yo: 0.5 * mcu_y + 0.5 * mcu_overhang_y
 
 points:
   zones:
