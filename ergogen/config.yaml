@@ -36,6 +36,12 @@ units:
   disp_xo: 0.5 * disp_x
   disp_yo: 0.5 * disp_y
 
+  # Trackpoint Mount
+  tp_x: 7.8
+  tp_y: 23.3
+  tp_xo: 0.5 * tp_x
+  tp_yo: 0.5 * tp_y
+
 points:
   zones:
 
@@ -132,6 +138,19 @@ points:
         name: disp
         width: disp_x
         height: disp_y
+
+    trackpoint_mount:
+      anchor:
+        ref.aggregate.parts:
+          - matrix_index_home
+          - matrix_index_bottom
+          - matrix_inner_home
+          - matrix_inner_bottom
+        shift: [0, 0]
+      key:
+        name: tp_mount
+        width: tp_x
+        height: tp_y
 
     text_version:
       anchor:
@@ -319,6 +338,15 @@ pcbs:
           ref: mcu
           shift: [0,0]
           rotate: -90
+
+      trackpoint_mount:
+        what: trackpoint_mount
+        params:
+          reverse: false
+          side: F
+          show_outline_t430: true
+        where:
+          ref: tp_mount
 
       display:
         what: nice_view
