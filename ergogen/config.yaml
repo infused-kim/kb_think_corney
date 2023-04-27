@@ -1,13 +1,24 @@
 vars:
   version: &kb_version 'ThinkCorney v1-b1'
 units:
-  # Key spacing variables
+  # Key Spacing
+  # cx and cy are ergogen's choc spacing units.
   kx: cx
   ky: cy
   kxo: 0.5 * cx
   kyo: 0.5 * cy
   px: kx + 2
   py: ky + 2
+
+  # Keycap Size
+  # Ergogen's automatically adds 0.5mm to the cx and cy units
+  # to add spacing between the keys.
+  # The numbers below are the actual keycap sizes that will be displayed
+  # in the pcb to check proper alignment and spacing
+  keycaps_x: 17.5
+  keycaps_y: 16.5
+  keycaps_1_5_x: 26.5
+  keycaps_1_5_y: 16.5
 
   # Nice Nano
   # The nice nano footprint's center doesn't account
@@ -89,14 +100,14 @@ points:
             key:
               splay: -15
               spread: 1kx+2
-              stagger: -2.75
+              stagger: -2.7
               column_net: C4
         inner:
             key:
               width: 1.5kx
               splay: 75
-              spread: 1kx+3.4
-              stagger: 1.7
+              spread: 1kx+2.7
+              stagger: 2.3
               tags: key_long
               column_net: C5
       rows:
@@ -233,9 +244,11 @@ pcbs:
         what: choc
         where: [key]
         params:
-          keycaps: true
           reverse: true
           hotswap: true
+          keycaps: true
+          keycaps_x: keycaps_x
+          keycaps_y: keycaps_y
           from: "{{column_net}}"
           to: "{{colrow}}"
         adjust:
@@ -246,10 +259,11 @@ pcbs:
         what: choc
         where: [key_long]
         params:
-          keycaps: true
           reverse: true
           hotswap: true
-          show_1_5u_outline: true
+          keycaps: true
+          keycaps_x: keycaps_1_5_x
+          keycaps_y: keycaps_1_5_y
           from: "{{column_net}}"
           to: "{{colrow}}"
         adjust:
@@ -394,7 +408,7 @@ pcbs:
           rotate: -90
 
       power_switch:
-        what: power_switch
+        what: switch_power
         params:
           reverse: true
           from: BAT_P
