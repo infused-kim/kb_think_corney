@@ -1,6 +1,5 @@
-version:
-  name: 'ThinkCorney'
-  version: 'v1-b1'
+vars:
+  version: &kb_version 'ThinkCorney v1-b1'
 units:
   # Key spacing variables
   kx: cx
@@ -122,6 +121,11 @@ points:
         name: disp
         width: disp_x
         height: disp_y
+
+    text_version:
+      anchor:
+        ref: matrix_pinky_bottom
+        shift: [+kxo * 2, -kyo + 1.5]
 
 outlines:
 
@@ -409,6 +413,24 @@ pcbs:
         where:
           ref: mcu
           shift: [6.5, -mcu_yo - 7.75]
+          rotate: 0
+
+      text_version:
+        what: text
+        params:
+          reverse: true
+          text: *kb_version
+        where:
+          ref: text_version
+
+      text_jlc_order_num:
+        what: text
+        params:
+          reverse: true
+          text: "JLCJLCJLCJLC"
+        where:
+          ref: text_version
+          shift: [0, +1.5]
           rotate: 0
 
       # reset:
