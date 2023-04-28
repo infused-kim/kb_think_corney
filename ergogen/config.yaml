@@ -93,10 +93,10 @@ points:
       # These keys need to be soldered and can't use hotswap sockets.
       #
       # Flip so that the socket is further away from the trackpoint mounting
-      columns.index.rows.home.tags: key_tp_flipped
+      columns.index.rows.top.tags: key_tp_flipped
       # Flip so that the hotswap pad is not cut off by the trackpoint mounting
       # hole
-      columns.index.rows.bottom.tags: key_tp_flipped
+      columns.index.rows.home.tags: key_tp_flipped
 
     # Thumb Cluster
     thumbs:
@@ -151,10 +151,10 @@ points:
     trackpoint_mount:
       anchor:
         ref.aggregate.parts:
+          - matrix_index_top
           - matrix_index_home
-          - matrix_index_bottom
+          - matrix_inner_top
           - matrix_inner_home
-          - matrix_inner_bottom
         shift: [0, 0]
       key:
         name: tp_mount
