@@ -19,6 +19,22 @@ units:
   keycaps_y: 16.5
   keycaps_1_5_x: 26.5
   keycaps_1_5_y: 16.5
+  keycaps_1_5_xo: 0.5 * keycaps_1_5_x
+  keycaps_1_5_yo: 0.5 * keycaps_1_5_y
+
+  # Thumb key splay
+  splay_thumb_home: -15
+  splay_thumb_inner: 90 + -15
+
+  # Thumb key offset
+  # Spacing required for outline to get a straight edge for the inner side
+  thumb_edge_offset: 3
+
+  # Font units
+  font_x: 1
+  font_y: 1
+  font_xo: 0.5 font_x
+  font_yo: 0.5 * font_y
 
   # Nice Nano
   # The nice nano footprint's center doesn't account
@@ -33,19 +49,52 @@ units:
   # Nice!View display
   disp_x: 14
   disp_y: 36
+  disp_jumper_y: 2.6
   disp_xo: 0.5 * disp_x
   disp_yo: 0.5 * disp_y
 
+  # Battery Connector
+  batc_x: 4.3
+  batc_y: 4.6
+  batc_xo: 0.5 * batc_x
+  batc_yo: 0.5 * batc_y
+
+  # Battery Pads
+  batp_x: 3.75
+  batp_y: 2.5
+  batp_xo: 0.5 * batp_x
+  batp_yo: 0.5 * batp_y
+
+  # Power Switch
+  sw_power_x: 3.1
+  sw_power_y: 8.3
+  sw_power_xo: 0.5 * sw_power_x
+  sw_power_yo: 0.5 * sw_power_y
+
+  # Reset Switch
+  sw_reset_x: 3.4
+  sw_reset_y: 5
+  sw_reset_xo: 0.5 * sw_reset_x
+  sw_reset_yo: 0.5 * sw_reset_y
+
   # Trackpoint Mount
-  tp_x: 7.8
-  tp_y: 23.3
-  tp_xo: 0.5 * tp_x
-  tp_yo: 0.5 * tp_y
+  tpm_x: 7.8
+  tpm_y: 23.3
+  tpm_xo: 0.5 * tpm_x
+  tpm_yo: 0.5 * tpm_y
+
+  # Trackpoint Connector
+  tpc_x: 9
+  tpc_y: 4.8
+  tpc_xo: 0.5 * tpc_x
+  tpc_yo: 0.5 * tpc_y
 
 points:
   zones:
 
+    #
     # Main Key Matrix
+    #
     matrix:
 
       # Fix placement on KiCAD sheet.
@@ -98,7 +147,9 @@ points:
       # hole
       columns.index.rows.home.tags: key_tp_flipped
 
+    #
     # Thumb Cluster
+    #
     thumbs:
       key:
         padding: 1ky
@@ -113,14 +164,14 @@ points:
               column_net: C3
         home:
             key:
-              splay: -15
+              splay: splay_thumb_home
               spread: 1kx+2
               stagger: -2.7
               column_net: C4
         inner:
             key:
               width: 1.5kx
-              splay: 75
+              splay: splay_thumb_inner
               spread: 1kx+2.7
               stagger: 2.3
               tags: key_long
@@ -130,6 +181,9 @@ points:
         cluster:
           row_net: R4
 
+    #
+    #  Controller
+    #
     controller:
       anchor:
         ref: matrix_inner_top
@@ -139,6 +193,29 @@ points:
         width: mcu_x
         height: mcu_y
 
+    #
+    # Helper Points
+    #
+    edge_inner_top:
+      anchor:
+        ref: mcu
+        shift: [+mcu_xo, +mcu_yo]
+      key:
+        name: edge_inner_top
+
+    edge_thumb_cluster:
+      anchor:
+        ref: thumbs_inner_cluster
+        shift: [+keycaps_1_5_xo, -keycaps_1_5_yo - thumb_edge_offset]
+      key:
+        name: edge_thumb_cluster
+        # thumbs_inner_cluster is splayed. So here we "unsplay" it
+        splay: -splay_thumb_home - splay_thumb_inner
+
+    #
+    # Part Positioning
+    #
+
     display:
       anchor:
         ref: mcu
@@ -147,6 +224,42 @@ points:
         name: disp
         width: disp_x
         height: disp_y
+
+    battery_conn:
+      anchor:
+        ref: disp
+        shift: [+batc_xo, -disp_yo - disp_jumper_y - batc_yo - 3.5 ]
+      key:
+        name: batc
+        width: batc_x
+        height: batc_y
+
+    battery_pad:
+      anchor:
+        ref: batc
+        shift: [-batc_xo - batp_xo - 2, 0]
+      key:
+        name: batp
+        width: batp_x
+        height: batp_y
+
+    power_switch:
+      anchor:
+        ref: edge_thumb_cluster
+        shift: [-sw_power_xo, +sw_power_yo + 1]
+      key:
+        name: sw_power
+        width: sw_power_x
+        height: sw_power_y
+
+    reset_switch:
+      anchor:
+        ref: sw_power
+        shift: [+sw_power_xo - sw_reset_xo, +sw_power_yo + 2 + sw_reset_yo]
+      key:
+        name: sw_reset
+        width: sw_reset_x
+        height: sw_reset_y
 
     trackpoint_mount:
       anchor:
@@ -158,8 +271,17 @@ points:
         shift: [0, 0]
       key:
         name: tp_mount
-        width: tp_x
-        height: tp_y
+        width: tpm_x
+        height: tpm_y
+
+    trackpoint_connector:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [+kxo + tpc_xo, -kyo - tpc_yo - 1]
+      key:
+        name: tp_conn
+        width: tpm_x
+        height: tpm_y
 
     text_version:
       anchor:
@@ -227,15 +349,15 @@ outlines:
         # Controller
         - ref: mcu
           shift: [-mcu_xo, +mcu_yo]
-        - ref: mcu
-          shift: [+mcu_xo, +mcu_yo]
+        - ref: edge_inner_top
+          shift: [0, 0]
 
         # Right Side
         # Inner Thumb
+        - ref: edge_thumb_cluster
+          shift: [0, 0]
         - ref: thumbs_inner_cluster
-          shift: [+1.5kxo, -kyo]
-        - ref: thumbs_inner_cluster
-          shift: [-1.5kxo, -kyo]
+          shift: [-1.5kxo, -kyo - thumb_edge_offset]
 
         # Bottom
         # Inner thumb
@@ -409,8 +531,17 @@ pcbs:
           pad_1: BAT_P
           pad_2: GND
         where:
-          ref: mcu
-          shift: [0, -mcu_yo - 16.35]
+          ref: batc
+          rotate: 180
+
+      conn_battery_icon:
+        what: icon_bat
+        params:
+          reverse: true
+          spacing: 1.5
+        where:
+          ref: batc
+          shift: [0, batc_yo + font_yo + 0.5]
           rotate: 180
 
       pads_bat:
@@ -424,18 +555,17 @@ pcbs:
           net_1: BAT_P
           net_2: GND
         where:
-          ref: mcu
-          shift: [0, -mcu_yo - 12]
+          ref: batp
           rotate: -180
 
-      icon_bat:
+      pads_bat_icon:
         what: icon_bat
         params:
           reverse: true
           spacing: 1.5
         where:
-          ref: mcu
-          shift: [0, -mcu_yo - 10]
+          ref: batp
+          shift: [0, batp_yo + font_yo + 0.3]
           rotate: 180
 
       conn_trackpoint:
@@ -449,9 +579,8 @@ pcbs:
           pad_4: TP_RST
           pad_5: TP_VCC
         where:
-          ref: mcu
-          shift: [-6, -mcu_yo - 15]
-          rotate: -90
+          ref: tp_conn
+          rotate: 180
 
       pads_trackpoint:
         what: pads
@@ -473,9 +602,9 @@ pcbs:
           label_5: VCC
           label_at_bottom: true
         where:
-          ref: mcu
-          shift: [-6, -mcu_yo - 15]
-          rotate: -90
+          ref: tp_conn
+          shift: [0, 0]
+          rotate: 180
 
       power_switch:
         what: switch_power
@@ -484,8 +613,7 @@ pcbs:
           from: BAT_P
           to: RAW
         where:
-          ref: mcu
-          shift: [6.5, -mcu_yo - 15]
+          ref: sw_power
           rotate: 0
 
       reset_switch:
@@ -495,8 +623,7 @@ pcbs:
           from: GND
           to: RST
         where:
-          ref: mcu
-          shift: [6.5, -mcu_yo - 7.75]
+          ref: sw_reset
           rotate: 0
 
       text_version:
