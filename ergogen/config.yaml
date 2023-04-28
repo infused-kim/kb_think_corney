@@ -89,6 +89,15 @@ points:
         top:
           row_net: R1
 
+      # Change switch footprints for the keys around the trackpoint mount.
+      # These keys need to be soldered and can't use hotswap sockets.
+      #
+      # Flip so that the socket is further away from the trackpoint mounting
+      columns.index.rows.home.tags: key_tp_flipped
+      # Flip so that the hotswap pad is not cut off by the trackpoint mounting
+      # hole
+      columns.index.rows.bottom.tags: key_tp_flipped
+
     # Thumb Cluster
     thumbs:
       key:
@@ -259,12 +268,14 @@ pcbs:
     footprints:
 
       # Key Area
+      # Regular keys with hotswap
       choc_hotswap:
         what: choc
         where: [key]
         params:
           reverse: true
           hotswap: true
+          hotswap_tht: true
           keycaps: true
           keycaps_x: keycaps_x
           keycaps_y: keycaps_y
@@ -274,12 +285,14 @@ pcbs:
           shift: [0,0]
           rotate: -180
 
+      # 1.5u thumb key
       choc_hotswap_1_5u:
         what: choc
         where: [key_long]
         params:
           reverse: true
           hotswap: true
+          hotswap_tht: true
           keycaps: true
           keycaps_x: keycaps_1_5_x
           keycaps_y: keycaps_1_5_y
@@ -295,8 +308,37 @@ pcbs:
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
+          include_tht: false
         adjust:
-          shift: [0, 5]
+          shift: [0, 3.8]
+
+      # Prevent cut off of pad by trackpoint mounting hole
+      choc_tp_flipped:
+        what: choc
+        where: [key_tp_flipped]
+        params:
+          reverse: true
+          hotswap: true
+          hotswap_tht: true
+          keycaps: true
+          keycaps_x: keycaps_x
+          keycaps_y: keycaps_y
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: 0
+
+      diode_flipped:
+        what: diode
+        where: [key_tp_flipped]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+          include_tht: false
+        adjust:
+          shift: [0, -3.8]
+
 
       # Controller Area
       promicro:
