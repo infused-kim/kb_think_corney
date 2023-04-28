@@ -643,13 +643,3 @@ pcbs:
           ref: text_version
           shift: [0, +1.5]
           rotate: 0
-
-      # reset:
-      #   what: button
-      #   params:
-      #     from: GND
-      #     to: RST
-      #   where:
-      #     ref: mcu
-      #     shift: [0, -mcu_yo - 8]
-      #     rotate: -90
