@@ -384,9 +384,9 @@ pcbs:
       trackpoint_mount:
         what: trackpoint_mount
         params:
-          reverse: false
-          side: F
-          show_outline_t430: true
+          reverse: true
+          show_outline_t430: false
+          show_outline_x240: true
         where:
           ref: tp_mount
 
