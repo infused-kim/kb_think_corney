@@ -3,4 +3,38 @@
 
 # Ergogen generated files
 ergogen/output
+
+# Backups
 /backups
+
+# Kicad Ergogen Backup
+*_orig.kicad_pcb
+
+# Kicad temporary files
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-backups
+*.kicad_prl
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+
+# Kicad netlist files (exported from Eeschema)
+*.net
+
+# Kicad autorouter files (exported from Pcbnew)
+*.dsn
+*.ses
+
+# Exported Files
+*.xml
+*.csv
+
+# Other

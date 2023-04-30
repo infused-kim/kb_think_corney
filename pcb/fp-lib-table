@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "kleeb")(type "KiCad")(uri "/Users/Kim/Downloads/kleeb-master/pg1350.pretty")(options "")(descr ""))
+)
