@@ -24,7 +24,7 @@ ergogen: ## Run ergogen
 	@ergogen ./ergogen -o ./ergogen/output
 
 ergogen-deploy: ## Copy ergogen output to pcb folder
-	@cp -r ./ergogen/output/pcbs/ pcb/
+	@cp -r ./ergogen/output/pcbs/*.kicad_pcb pcb/
 
 restore-traces: ## Restores traces from latest backup
 	@echo "Restoring traces..."
