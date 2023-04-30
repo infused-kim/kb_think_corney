@@ -9,6 +9,8 @@ ergogen/output
 
 # Kicad Ergogen Backup
 *_orig.kicad_pcb
+*_orig.kicad_pro
+*_orig.pro
 
 # Kicad temporary files
 *.000
