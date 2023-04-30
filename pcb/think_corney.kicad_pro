@@ -3,7 +3,7 @@
     "3dviewports": [],
     "design_settings": {
       "defaults": {
-        "board_outline_line_width": 0.049999999999999996,
+        "board_outline_line_width": 0.09999999999999999,
         "copper_line_width": 0.19999999999999998,
         "copper_text_italic": false,
         "copper_text_size_h": 1.5,
@@ -27,7 +27,7 @@
         "fab_text_size_v": 1.0,
         "fab_text_thickness": 0.15,
         "fab_text_upright": false,
-        "other_line_width": 0.09999999999999999,
+        "other_line_width": 0.15,
         "other_text_italic": false,
         "other_text_size_h": 1.0,
         "other_text_size_v": 1.0,
@@ -38,7 +38,7 @@
           "height": 1.524,
           "width": 1.524
         },
-        "silk_line_width": 0.12,
+        "silk_line_width": 0.15,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
@@ -48,7 +48,13 @@
           "min_clearance": 0.508
         }
       },
-      "diff_pair_dimensions": [],
+      "diff_pair_dimensions": [
+        {
+          "gap": 0.0,
+          "via_gap": 0.0,
+          "width": 0.0
+        }
+      ],
       "drc_exclusions": [],
       "meta": {
         "filename": "board_design_settings.json",
@@ -67,7 +73,7 @@
         "duplicate_footprints": "warning",
         "extra_footprint": "warning",
         "footprint": "error",
-        "footprint_type_mismatch": "ignore",
+        "footprint_type_mismatch": "error",
         "hole_clearance": "error",
         "hole_near_hole": "error",
         "invalid_outline": "error",
@@ -83,7 +89,7 @@
         "missing_footprint": "warning",
         "net_conflict": "warning",
         "npth_inside_courtyard": "ignore",
-        "padstack": "warning",
+        "padstack": "error",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
@@ -106,21 +112,21 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.0,
+        "min_clearance": 0.127,
         "min_connection": 0.0,
-        "min_copper_edge_clearance": 0.5,
-        "min_hole_clearance": 0.25,
-        "min_hole_to_hole": 0.25,
+        "min_copper_edge_clearance": 0.19999999999999998,
+        "min_hole_clearance": 0.19999999999999998,
+        "min_hole_to_hole": 0.5,
         "min_microvia_diameter": 0.19999999999999998,
         "min_microvia_drill": 0.09999999999999999,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.7999999999999999,
-        "min_text_thickness": 0.08,
+        "min_text_height": 1.0,
+        "min_text_thickness": 0.153,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.19999999999999998,
-        "min_via_annular_width": 0.09999999999999999,
-        "min_via_diameter": 0.39999999999999997,
+        "min_track_width": 0.127,
+        "min_via_annular_width": 0.13,
+        "min_via_diameter": 0.43,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -164,8 +170,15 @@
           "td_width_to_size_filter_ratio": 0.9
         }
       ],
-      "track_widths": [],
-      "via_dimensions": [],
+      "track_widths": [
+        0.0
+      ],
+      "via_dimensions": [
+        {
+          "diameter": 0.0,
+          "drill": 0.0
+        }
+      ],
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
@@ -209,236 +222,7 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": [
-      {
-        "netclass": "Default",
-        "pattern": ""
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C0"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "outer_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "outer_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "outer_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "pinky_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "pinky_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "pinky_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ring_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ring_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "ring_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "middle_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "middle_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "middle_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "index_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "C5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "inner_bottom"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "inner_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "inner_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "outer_cluster"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "home_cluster"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "inner_cluster"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "R4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "index_home"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "index_top"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RAW"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "GND"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "RST"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "VCC"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "F16"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "F10"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "TPC"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "TPD"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DPD"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DPC"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "F8"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DPE"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DISP1_1"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DISP1_2"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DISP1_4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "DISP1_5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "BAT_P"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "PAD_3"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "PAD_4"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "PAD_5"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "TPR"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SMD_5_F"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SMD_5_T"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SMD_6_F"
-      },
-      {
-        "netclass": "Default",
-        "pattern": "SMD_6_T"
-      }
-    ]
+    "netclass_patterns": []
   },
   "pcbnew": {
     "last_paths": {
