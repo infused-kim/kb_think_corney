@@ -237,7 +237,7 @@ points:
     battery_pad:
       anchor:
         ref: batc
-        shift: [-batc_xo - batp_xo - 2, 0]
+        shift: [0, -batc_yo - batp_yo - 3]
       key:
         name: batp
         width: batp_x
@@ -277,7 +277,7 @@ points:
     trackpoint_connector:
       anchor:
         ref: matrix_inner_bottom
-        shift: [+kxo + tpc_xo, -kyo - tpc_yo - 1]
+        shift: [+kxo + tpc_xo + 0.75, -kyo - tpc_yo + 0.5]
       key:
         name: tp_conn
         width: tpm_x
@@ -573,11 +573,11 @@ pcbs:
         params:
           reverse: true
           side: F
-          pad_1: TP_GND
-          pad_2: TP_SCL
-          pad_3: TP_SDA
-          pad_4: TP_RST
-          pad_5: TP_VCC
+          pad_1: VCC
+          pad_2: GND
+          pad_3: TPC
+          pad_4: TPR
+          pad_5: TPD
         where:
           ref: tp_conn
           rotate: 180
@@ -590,20 +590,57 @@ pcbs:
           height: 2
           space: 1
           pads: 5
-          net_1: TP_GND
-          net_2: TP_SCL
-          net_3: TP_SDA
-          net_4: TP_RST
-          net_5: TP_VCC
-          label_1: GND
-          label_2: SCL
-          label_3: SDA
+
+          net_1: VCC
+          net_2: GND
+          net_3: TPC
+          net_4: TPR
+          net_5: TPD
+
+          label_1: VCC
+          label_2: GND
+          label_3: SCL
           label_4: RST
-          label_5: VCC
+          label_5: SDA
           label_at_bottom: true
         where:
           ref: tp_conn
           shift: [0, 0]
+          rotate: 180
+
+      trackpoint_reset_circuit:
+        what: smd_0805
+        params:
+          reverse: true
+          space: 1
+          mirror: true
+          label_at_bottom: true
+          swap_pad_direction: true
+          components: 4
+
+          # TP clock pull up resistor 4.7k
+          net_1_from: TPC
+          net_1_to: VCC
+          label_1: TCR
+
+          # TP Reset circuit resistor 100k
+          net_2_from: TPR
+          net_2_to: GND
+          label_2: TRR
+
+          # TP Reset circuit capacitor 2.2uF
+          net_3_from: TPR
+          net_3_to: VCC
+          label_3: TRC
+
+          # TP data pull up resistor 4.7k
+          net_4_from: TPD
+          net_4_to: VCC
+          label_4: TDR
+
+        where:
+          ref: tp_conn
+          shift: [0, 6]
           rotate: 180
 
       power_switch:
