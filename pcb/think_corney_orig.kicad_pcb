@@ -220,6 +220,7 @@
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 100 100 -180)
+        (attr virtual)
 
         
         (fp_text reference "S1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -261,12 +262,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 2 "outer_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 2 "outer_bottom"))
 
           
@@ -301,15 +317,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 2 "outer_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 2 "outer_bottom"))
 
           
@@ -344,13 +367,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 2 "outer_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 100 83 -180)
+        (attr virtual)
 
         
         (fp_text reference "S2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -392,12 +415,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 3 "outer_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 3 "outer_home"))
 
           
@@ -432,15 +470,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 3 "outer_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 3 "outer_home"))
 
           
@@ -475,13 +520,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 3 "outer_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 100 66 -180)
+        (attr virtual)
 
         
         (fp_text reference "S3" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -523,12 +568,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 4 "outer_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 4 "outer_top"))
 
           
@@ -563,15 +623,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 4 "outer_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 1 "C0"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 1 "C0"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 4 "outer_top"))
 
           
@@ -606,13 +673,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 1 "C0"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 4 "outer_top"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 118 100 -180)
+        (attr virtual)
 
         
         (fp_text reference "S4" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -654,12 +721,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 6 "pinky_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 6 "pinky_bottom"))
 
           
@@ -694,15 +776,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 6 "pinky_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 6 "pinky_bottom"))
 
           
@@ -737,13 +826,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 6 "pinky_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 118 83 -180)
+        (attr virtual)
 
         
         (fp_text reference "S5" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -785,12 +874,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 7 "pinky_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 7 "pinky_home"))
 
           
@@ -825,15 +929,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 7 "pinky_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 7 "pinky_home"))
 
           
@@ -868,13 +979,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 7 "pinky_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 118 66 -180)
+        (attr virtual)
 
         
         (fp_text reference "S6" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -916,12 +1027,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 8 "pinky_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 8 "pinky_top"))
 
           
@@ -956,15 +1082,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 8 "pinky_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 5 "C1"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 5 "C1"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 8 "pinky_top"))
 
           
@@ -999,13 +1132,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 5 "C1"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 8 "pinky_top"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 136 95.25 -180)
+        (attr virtual)
 
         
         (fp_text reference "S7" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1047,12 +1180,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 10 "ring_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 10 "ring_bottom"))
 
           
@@ -1087,15 +1235,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 10 "ring_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 10 "ring_bottom"))
 
           
@@ -1130,13 +1285,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 10 "ring_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 136 78.25 -180)
+        (attr virtual)
 
         
         (fp_text reference "S8" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1178,12 +1333,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 11 "ring_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 11 "ring_home"))
 
           
@@ -1218,15 +1388,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 11 "ring_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 11 "ring_home"))
 
           
@@ -1261,13 +1438,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 11 "ring_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 136 61.25 -180)
+        (attr virtual)
 
         
         (fp_text reference "S9" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1309,12 +1486,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 12 "ring_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 12 "ring_top"))
 
           
@@ -1349,15 +1541,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 12 "ring_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 9 "C2"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 9 "C2"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 12 "ring_top"))
 
           
@@ -1392,13 +1591,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 9 "C2"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 12 "ring_top"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 154 92.875 -180)
+        (attr virtual)
 
         
         (fp_text reference "S10" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1440,12 +1639,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 14 "middle_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 14 "middle_bottom"))
 
           
@@ -1480,15 +1694,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 14 "middle_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 14 "middle_bottom"))
 
           
@@ -1523,13 +1744,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 14 "middle_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 154 75.875 -180)
+        (attr virtual)
 
         
         (fp_text reference "S11" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1571,12 +1792,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 15 "middle_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 15 "middle_home"))
 
           
@@ -1611,15 +1847,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 15 "middle_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 15 "middle_home"))
 
           
@@ -1654,13 +1897,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 15 "middle_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 154 58.875 -180)
+        (attr virtual)
 
         
         (fp_text reference "S12" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1702,12 +1945,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 16 "middle_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 16 "middle_top"))
 
           
@@ -1742,15 +2000,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 16 "middle_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 16 "middle_top"))
 
           
@@ -1785,13 +2050,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 16 "middle_top"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 172 95.25 -180)
+        (attr virtual)
 
         
         (fp_text reference "S13" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1833,12 +2098,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 18 "index_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 18 "index_bottom"))
 
           
@@ -1873,15 +2153,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 18 "index_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 18 "index_bottom"))
 
           
@@ -1916,13 +2203,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 18 "index_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 190 97.625 -180)
+        (attr virtual)
 
         
         (fp_text reference "S14" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -1964,12 +2251,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 20 "inner_bottom"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 20 "inner_bottom"))
 
           
@@ -2004,15 +2306,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 20 "inner_bottom"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 20 "inner_bottom"))
 
           
@@ -2047,13 +2356,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 20 "inner_bottom"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 190 80.625 -180)
+        (attr virtual)
 
         
         (fp_text reference "S15" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2095,12 +2404,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 21 "inner_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 21 "inner_home"))
 
           
@@ -2135,15 +2459,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 21 "inner_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 21 "inner_home"))
 
           
@@ -2178,13 +2509,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 21 "inner_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 190 63.625 -180)
+        (attr virtual)
 
         
         (fp_text reference "S16" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2226,12 +2557,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 22 "inner_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 22 "inner_top"))
 
           
@@ -2266,15 +2612,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 22 "inner_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 22 "inner_top"))
 
           
@@ -2309,13 +2662,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 22 "inner_top"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 162.5 114.875 -180)
+        (attr virtual)
 
         
         (fp_text reference "S17" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2357,12 +2710,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 23 "outer_cluster"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -180) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -180) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 23 "outer_cluster"))
 
           
@@ -2397,15 +2765,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 23 "outer_cluster"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 13 "C3"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -180) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 13 "C3"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -180) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 23 "outer_cluster"))
 
           
@@ -2440,13 +2815,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 13 "C3"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 23 "outer_cluster"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 182.5 117.575 -195)
+        (attr virtual)
 
         
         (fp_text reference "S18" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2488,12 +2863,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 24 "home_cluster"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -195) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -195) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -195) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 24 "home_cluster"))
 
           
@@ -2528,15 +2918,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 24 "home_cluster"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -195) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -195) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -195) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 24 "home_cluster"))
 
           
@@ -2571,13 +2968,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 24 "home_cluster"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 203.0899484 120.7109248 -120)
+        (attr virtual)
 
         
         (fp_text reference "S19" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2619,12 +3016,27 @@
         (fp_line (start -13.25 8.25) (end -13.25 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 25 "inner_cluster"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 -120) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 -120) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+          
           (pad 2 smd rect (at 8.275 -3.75 -120) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 25 "inner_cluster"))
 
           
@@ -2659,15 +3071,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 25 "inner_cluster"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 -120) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 19 "C5"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 -120) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 19 "C5"))
+        
           (pad 2 smd rect (at -8.275 -3.75 -120) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 25 "inner_cluster"))
 
           
@@ -2702,12 +3121,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 19 "C5"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 25 "inner_cluster"))
         )
           
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 100 96.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2741,6 +3161,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 100 79.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2774,6 +3196,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 100 62.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D3" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2807,6 +3231,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 118 96.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D4" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2840,6 +3266,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 118 79.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D5" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2873,6 +3301,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 118 62.2 0)
+        (attr virtual)
+
         
         (fp_text reference "D6" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2906,6 +3336,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 136 91.45 0)
+        (attr virtual)
+
         
         (fp_text reference "D7" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2939,6 +3371,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 136 74.45 0)
+        (attr virtual)
+
         
         (fp_text reference "D8" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -2972,6 +3406,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 136 57.45 0)
+        (attr virtual)
+
         
         (fp_text reference "D9" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3005,6 +3441,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 154 89.075 0)
+        (attr virtual)
+
         
         (fp_text reference "D10" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3038,6 +3476,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 154 72.075 0)
+        (attr virtual)
+
         
         (fp_text reference "D11" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3071,6 +3511,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 154 55.075 0)
+        (attr virtual)
+
         
         (fp_text reference "D12" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3104,6 +3546,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 172 91.45 0)
+        (attr virtual)
+
         
         (fp_text reference "D13" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3137,6 +3581,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 190 93.825 0)
+        (attr virtual)
+
         
         (fp_text reference "D14" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3170,6 +3616,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 190 76.825 0)
+        (attr virtual)
+
         
         (fp_text reference "D15" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3203,6 +3651,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 190 59.825 0)
+        (attr virtual)
+
         
         (fp_text reference "D16" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3236,6 +3686,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 162.5 111.075 0)
+        (attr virtual)
+
         
         (fp_text reference "D17" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3269,6 +3721,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 183.4835124 113.90448190000001 -15)
+        (attr virtual)
+
         
         (fp_text reference "D18" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3302,6 +3756,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 199.7990519 118.8109248 60)
+        (attr virtual)
+
         
         (fp_text reference "D19" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3336,6 +3792,7 @@
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 172 78.25 0)
+        (attr virtual)
 
         
         (fp_text reference "S20" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3377,12 +3834,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 30 "index_home"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 0) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 0) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+          
           (pad 2 smd rect (at 8.275 -3.75 0) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 30 "index_home"))
 
           
@@ -3417,15 +3889,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 30 "index_home"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 0) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 0) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+        
           (pad 2 smd rect (at -8.275 -3.75 0) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 30 "index_home"))
 
           
@@ -3460,13 +3939,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 30 "index_home"))
         )
           
 
           
         (module PG1350 (layer F.Cu) (tedit 5DD50112)
         (at 172 61.25 0)
+        (attr virtual)
 
         
         (fp_text reference "S21" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3508,12 +3987,27 @@
         (fp_line (start -8.75 8.25) (end -8.75 -8.25) (layer Dwgs.User) (width 0.15))
       
           
+        
+        (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
+      
+          
+      (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 31 "index_top"))
+      
+          
           
           (pad "" np_thru_hole circle (at 5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at -3.275 -5.95 0) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at -3.275 -5.95 0) (size 0.5 0.5) (layers B.Cu B.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 0.25) (xy -0.05 1.3) (xy 1.3 1.3) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+          
           (pad 2 smd rect (at 8.275 -3.75 0) (size 2.6 2.6) (layers B.Cu B.Paste B.Mask)  (net 31 "index_top"))
 
           
@@ -3548,15 +4042,22 @@
         
           
           (pad 1 thru_hole circle (at 5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at 0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 31 "index_top"))
         
           
           
           (pad "" np_thru_hole circle (at -5 -3.75) (size 3 3) (drill 3) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0 -5.95) (size 3 3) (drill 3) (layers *.Cu *.Mask))
 
           
-          (pad 1 smd rect (at 3.275 -5.95 0) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 17 "C4"))
+          
+          (pad 1 connect custom (at 3.275 -5.95 0) (size 0.5 0.5) (layers F.Cu F.Mask)
+          (zone_connect 0)
+          (options (clearance outline) (anchor rect))
+          (primitives
+            (gr_poly (pts
+              (xy -1.3 -1.3) (xy -1.3 1.3) (xy 0.05 1.3) (xy 1.3 0.25) (xy 1.3 -1.3)
+            ) (width 0))
+          ) (net 17 "C4"))
+        
           (pad 2 smd rect (at -8.275 -3.75 0) (size 2.6 2.6) (layers F.Cu F.Paste F.Mask)  (net 31 "index_top"))
 
           
@@ -3591,12 +4092,13 @@
         
           
           (pad 1 thru_hole circle (at -5 3.8) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 17 "C4"))
-          (pad 2 thru_hole circle (at -0 5.9) (size 2.032 2.032) (drill 1.27) (layers *.Cu *.Mask) (net 31 "index_top"))
         )
           
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 172 82.05 0)
+        (attr virtual)
+
         
         (fp_text reference "D20" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3630,6 +4132,8 @@
 
     (module ComboDiode (layer F.Cu) (tedit 5B24D78E)
         (at 172 65.05 0)
+        (attr virtual)
+
         
         (fp_text reference "D21" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
         (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -3663,6 +4167,7 @@
 
       (module ProMicro (layer F.Cu) (tedit 6135B927)
         (at 209.25 75.155 -90)
+        (attr virtual)
 
       
       (descr "Solder-jumper reversible Pro Micro footprint")
@@ -5393,6 +5898,7 @@
 
       (module trackpoint_mount_t430 (layer F.Cu) (tedit 6449FFC5)
         (at 181 70.9375 0)
+        (attr virtual)
 
         (fp_text reference "TP1" (at 0 0) (layer B.SilkS) hide
           (effects (font (size 1 1) (thickness 0.15)))
@@ -5446,6 +5952,7 @@
 
       (module nice!view (layer F.Cu) (tedit 6448AF5B)
         (at 209.25 75.375 0)
+        (attr virtual)
         (fp_text reference "DISP1" (at 0 20 0) (layer F.SilkS) hide
           (effects (font (size 1 1) (thickness 0.15)))
         )
@@ -5588,6 +6095,8 @@
 
         (module conn_molex_pico_ezmate_1x02 (layer F.Cu) (tedit 6445F610)
           (at 211.4 101.775 180)
+          (attr smd)
+
       
         (fp_text reference CONN1 (at 0.1 3.9 180) (layer F.SilkS) hide
           (effects (font (size 1 1) (thickness 0.15)))
@@ -5655,6 +6164,7 @@
 
         (module icon_bat (layer F.Cu) (tedit 64461058)
           (at 211.4 98.47500000000001 180)
+          (attr virtual)
 
       
           (fp_text reference "ICON1" (at 0 3 180) (layer F.SilkS) hide
@@ -5679,6 +6189,8 @@
 
           (module pads (layer F.Cu) (tedit 6446BF3D)
             (at 211.4 108.325 -180)
+            (attr smd)
+
             (fp_text reference "PAD1" (at 0 2.2) (layer F.SilkS) hide
               (effects (font (size 1 1) (thickness 0.15)))
             )
@@ -5697,6 +6209,7 @@
 
         (module icon_bat (layer F.Cu) (tedit 64461058)
           (at 211.4 106.275 180)
+          (attr virtual)
 
       
           (fp_text reference "ICON2" (at 0 3 180) (layer F.SilkS) hide
@@ -5721,6 +6234,8 @@
 
       (module conn_molex_pico_ezmate_1x05 (layer F.Cu) (tedit 644602FB)
         (at 204.25 108.025 180)
+        (attr smd)
+
       
         (fp_text reference "CONN2" (at 0 0.25 180) (layer F.SilkS) hide
           (effects (font (size 1 1) (thickness 0.15)))
@@ -5800,6 +6315,8 @@
 
           (module pads (layer F.Cu) (tedit 6446BF3D)
             (at 204.25 108.025 180)
+            (attr smd)
+
             (fp_text reference "PAD2" (at 0 2.2) (layer F.SilkS) hide
               (effects (font (size 1 1) (thickness 0.15)))
             )
@@ -5870,6 +6387,8 @@
 
           (module smd_805 (layer F.Cu) (tedit 6446BF3D)
             (at 204.25 102.025 180)
+            (attr smd)
+
             (fp_text reference "SMD1" (at 0 3) (layer F.SilkS) hide
               (effects (font (size 1 1) (thickness 0.15)))
             )
@@ -6063,7 +6582,9 @@
         
 
         (module power_switch (layer F.Cu) (tedit 644556E6)
-          (at 217.9077342 109.71108819999999 0)
+          (at 217.4077342 109.71108819999999 0)
+          (attr smd)
+
       
           (fp_text reference "SW1" (at -3.6 0 -90) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
@@ -6139,14 +6660,14 @@
         
           (pad "" np_thru_hole circle (at 0.025 -1.5 90) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask))
           (pad "" np_thru_hole circle (at 0.025 1.5 90) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0.025 1.5 270) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask))
-          (pad "" np_thru_hole circle (at 0.025 -1.5 270) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask))
         )
         
 
         (module sw_reset_side (layer F.Cu) (tedit 64473C6F)
-          (at 217.7577342 101.06108819999999 0)
-          (fp_text reference "CONN3" (at 0 3.5 0) (layer F.SilkS) hide
+          (at 217.1577342 101.06108819999999 0)
+          (attr smd)
+
+          (fp_text reference "SW2" (at 0 3.5 0) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
           )
       
@@ -6155,7 +6676,6 @@
           (fp_line (start 2.1 0.85) (end 2.1 -0.85) (layer F.Fab) (width 0.1))
           (fp_line (start 1.7 -1.1) (end 2.35 -1.1) (layer F.CrtYd) (width 0.05))
           (fp_line (start -1.7 -2.75) (end 1.7 -2.75) (layer F.CrtYd) (width 0.05))
-          (fp_line (start 1.55 -0.95) (end 2.2 -0.95) (layer F.SilkS) (width 0.12))
           (fp_line (start 1.45 -1.75) (end 1.45 1.75) (layer F.Fab) (width 0.1))
           (fp_line (start 1.7 1.1) (end 1.7 2.75) (layer F.CrtYd) (width 0.05))
           (fp_line (start 2.35 1.1) (end 1.7 1.1) (layer F.CrtYd) (width 0.05))
@@ -6168,8 +6688,6 @@
           (fp_line (start 1.45 1.75) (end -1.4 1.75) (layer F.Fab) (width 0.1))
           (fp_line (start -1.45 1.75) (end -1.45 -1.75) (layer F.Fab) (width 0.1))
           (fp_line (start -1.45 -1.75) (end 1.45 -1.75) (layer F.Fab) (width 0.1))
-          (fp_line (start 2.2 -0.95) (end 2.2 0.95) (layer F.SilkS) (width 0.12))
-          (fp_line (start 2.2 0.95) (end 1.55 0.95) (layer F.SilkS) (width 0.12))
 
           (pad 1 smd rect (at -0.72 -1.8 90) (size 1.4 1.05) (layers F.Cu F.Paste F.Mask) (net 33 "GND"))
 
@@ -6178,7 +6696,6 @@
           (pad 2 smd rect (at 0.72 1.8 90) (size 1.4 1.05) (layers F.Cu F.Paste F.Mask) (net 34 "RST"))
       
       (fp_line (start -1.45 1.75) (end 1.45 1.75) (layer B.Fab) (width 0.1))
-      (fp_line (start 2.2 0.95) (end 2.2 -0.95) (layer B.SilkS) (width 0.12))
       (fp_line (start 1.45 1.75) (end 1.45 -1.75) (layer B.Fab) (width 0.1))
       (fp_line (start 1.7 -1.1) (end 1.7 -2.75) (layer B.CrtYd) (width 0.05))
       (fp_line (start 2.35 -1.1) (end 1.7 -1.1) (layer B.CrtYd) (width 0.05))
@@ -6190,18 +6707,16 @@
       (fp_line (start -1.55 -1.75) (end -1.55 1.75) (layer B.SilkS) (width 0.12))
       (fp_line (start 1.45 -1.75) (end -1.4 -1.75) (layer B.Fab) (width 0.1))
       (fp_line (start -1.45 -1.75) (end -1.45 1.75) (layer B.Fab) (width 0.1))
-      (fp_line (start 2.2 -0.95) (end 1.55 -0.95) (layer B.SilkS) (width 0.12))
       (fp_line (start 1.7 -2.75) (end -1.7 -2.75) (layer B.CrtYd) (width 0.05))
       (fp_line (start -1.7 -2.75) (end -1.7 2.75) (layer B.CrtYd) (width 0.05))
       (fp_line (start 2.1 -0.85) (end 2.1 0.85) (layer B.Fab) (width 0.1))
       (fp_line (start 1.7 1.1) (end 2.35 1.1) (layer B.CrtYd) (width 0.05))
       (fp_line (start -1.7 2.75) (end 1.7 2.75) (layer B.CrtYd) (width 0.05))
-      (fp_line (start 1.55 0.95) (end 2.2 0.95) (layer B.SilkS) (width 0.12))
       (pad 1 smd rect (at -0.72 -1.8 270) (size 1.4 1.05) (layers B.Cu B.Paste B.Mask) (net 33 "GND"))
       (pad 2 smd rect (at 0.72 1.8 270) (size 1.4 1.05) (layers B.Cu B.Paste B.Mask) (net 34 "RST"))
       (pad 2 smd rect (at 0.72 -1.8 270) (size 1.4 1.05) (layers B.Cu B.Paste B.Mask) (net 34 "RST"))
       (pad 1 smd rect (at -0.72 1.8 270) (size 1.4 1.05) (layers B.Cu B.Paste B.Mask) (net 33 "GND"))
-      (fp_text user REF** (at 0 3.5 0) (layer B.SilkS)
+      (fp_text user SW2 (at 0 3.5 0) (layer B.SilkS) hide
         (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       )
       
@@ -6210,7 +6725,9 @@
 
       (module text (layer F.Cu) (tedit 6449CD11)
         (at 136 107 0)
-    
+        (attr virtual)
+
+      
       (fp_text user "ThinkCorney v1-b1" (at 0 0) (layer F.SilkS)
         (effects (font (size 1 1) (thickness 0.15)))
       )
@@ -6224,7 +6741,9 @@
 
       (module text (layer F.Cu) (tedit 6449CD11)
         (at 136 105.5 0)
-    
+        (attr virtual)
+
+      
       (fp_text user "JLCJLCJLCJLC" (at 0 0) (layer F.SilkS)
         (effects (font (size 1 1) (thickness 0.15)))
       )

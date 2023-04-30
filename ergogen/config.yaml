@@ -246,7 +246,7 @@ points:
     power_switch:
       anchor:
         ref: edge_thumb_cluster
-        shift: [-sw_power_xo, +sw_power_yo + 1]
+        shift: [-sw_power_xo - 0.5, +sw_power_yo + 1]
       key:
         name: sw_power
         width: sw_power_x
@@ -255,7 +255,7 @@ points:
     reset_switch:
       anchor:
         ref: sw_power
-        shift: [+sw_power_xo - sw_reset_xo, +sw_power_yo + 2 + sw_reset_yo]
+        shift: [+sw_power_xo - sw_reset_xo - 0.1, +sw_power_yo + 2 + sw_reset_yo]
       key:
         name: sw_reset
         width: sw_reset_x
