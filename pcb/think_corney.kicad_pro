@@ -50,12 +50,7 @@
       },
       "diff_pair_dimensions": [],
       "drc_exclusions": [
-        "hole_clearance|216100000|61185000|54b893d3-e6a8-4c09-aa69-9f38630cfab1|7db945e9-3a5f-4bc3-a7fc-c159d3244ec5",
-        "hole_clearance|216100000|61185000|54b893d3-e6a8-4c09-aa69-9f38630cfab1|9b0e67aa-1033-400b-bd97-d929eb77326e",
-        "hole_clearance|216100000|61185000|734b0896-3892-45f1-ad74-1b29151f71e0|7db945e9-3a5f-4bc3-a7fc-c159d3244ec5",
-        "hole_clearance|216870000|61185000|54b893d3-e6a8-4c09-aa69-9f38630cfab1|734b0896-3892-45f1-ad74-1b29151f71e0",
-        "holes_co_located|201630000|61185000|230ed4ae-1cd6-4c20-81b8-359a1ac104e2|f31c8442-ba6c-4b38-b047-10d3e3359a72",
-        "holes_co_located|216870000|61185000|54b893d3-e6a8-4c09-aa69-9f38630cfab1|734b0896-3892-45f1-ad74-1b29151f71e0"
+        "hole_clearance|216870000|61185000|fffef8f7-36f5-4d3f-8668-4052a252e57d|f4d80d16-d2e0-4d8f-94ed-e57509cb8f9a"
       ],
       "meta": {
         "filename": "board_design_settings.json",
