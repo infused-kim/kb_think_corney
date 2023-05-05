@@ -294,6 +294,45 @@ pcbs:
         outline: board
     footprints:
 
+      # Controller
+      promicro:
+        what: nice_nano_pretty
+        params:
+          traces: true
+          show_labels: false
+
+          # Pin Assignments (Controller on top facing down)
+          # Right Side
+          P0: 'TPD'    # Trackpoint Data
+          P1: 'TPC'    # Trackpoint Clock
+          # GND
+          # GND
+          P2: 'DPD'   # Display Data
+          P3: 'DPC'   # Display Clock
+          P4: 'R1'    # Row Top
+          P5: 'R2'    # Row Home
+          P6: 'R3'    # Row Bottom
+          P7: 'R4'    # Row Thumb
+          P8: 'F8'    # Free, but could be Num Row
+          P9: 'DPE'   # Display CS (nice!view only)
+
+          # Left Side
+          # RAW       # Battery Pos
+          # GND       # Ground / Battery Neg
+          # RST       # Reset pin
+          # VCC       # External Power
+          P21: 'C0'   # Column Outer
+          P20: 'C1'   # Column Pinky
+          P19: 'C2'   # Column Ring
+          P18: 'C3'   # Column Middle
+          P15: 'C4'   # Column Index
+          P14: 'C5'   # Column Inner
+          P16: 'F16'  # Free, but could be Encoder 1
+          P10: 'F10'  # Free, but could be Encoder 2
+        where:
+          ref: mcu
+          shift: [0,0]
+
       # Key Area
       # Regular keys with hotswap
       choc_hotswap:
@@ -368,44 +407,6 @@ pcbs:
 
 
       # Controller Area
-      promicro:
-        what: nice_nano_pretty
-        params:
-          show_labels: false
-
-          # Pin Assignments (Controller on top facing down)
-          # Right Side
-          P0: 'TPD'    # Trackpoint Data
-          P1: 'TPC'    # Trackpoint Clock
-          # GND
-          # GND
-          P2: 'DPD'   # Display Data
-          P3: 'DPC'   # Display Clock
-          P4: 'R1'    # Row Top
-          P5: 'R2'    # Row Home
-          P6: 'R3'    # Row Bottom
-          P7: 'R4'    # Row Thumb
-          P8: 'F8'    # Free, but could be Num Row
-          P9: 'DPE'   # Display CS (nice!view only)
-
-          # Left Side
-          # RAW       # Battery Pos
-          # GND       # Ground / Battery Neg
-          # RST       # Reset pin
-          # VCC       # External Power
-          P21: 'C0'   # Column Outer
-          P20: 'C1'   # Column Pinky
-          P19: 'C2'   # Column Ring
-          P18: 'C3'   # Column Middle
-          P15: 'C4'   # Column Index
-          P14: 'C5'   # Column Inner
-          P16: 'F16'  # Free, but could be Encoder 1
-          P10: 'F10'  # Free, but could be Encoder 2
-
-        where:
-          ref: mcu
-          shift: [0,0]
-
       trackpoint_mount:
         what: trackpoint_mount
         params:
