@@ -14,6 +14,11 @@ build: ## Backup current pcbs, run ergogen, restore traces
 	@$(MAKE) ergogen-deploy
 	@$(MAKE) restore-traces
 
+build-nt: ## Backup current pcbs, run ergogen, but don't restore traces
+	@$(MAKE) backup
+	@$(MAKE) ergogen
+	@$(MAKE) ergogen-deploy
+
 backup: ## Backups the current pcb folder
 	@echo "Creating backup $(BACKUP_PATH)..."
 	@mkdir -p $(BACKUP_PATH)
