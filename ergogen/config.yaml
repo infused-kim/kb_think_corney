@@ -22,6 +22,9 @@ units:
   keycaps_1_5_xo: 0.5 * keycaps_1_5_x
   keycaps_1_5_yo: 0.5 * keycaps_1_5_y
 
+  # PCB Edge Padding
+  pcb_outline_padding_outer: 1
+
   # Thumb key splay
   splay_thumb_home: -15
   splay_thumb_inner: 90 + -15
@@ -609,7 +612,7 @@ outlines:
         # Top
         # Outer
         - ref: matrix_outer_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo - pcb_outline_padding_outer, +kyo]
         - ref: matrix_outer_top
           shift: [+kxo, +kyo]
 
@@ -671,7 +674,7 @@ outlines:
 
         # Outer
         - ref: matrix_outer_bottom
-          shift: [-kxo, -kyo]
+          shift: [-kxo - pcb_outline_padding_outer, -kyo]
 
   # Combination preview showing outline and keys.
   combo:
