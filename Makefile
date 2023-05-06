@@ -8,6 +8,10 @@ LAST_BACKUP_PATH = $(shell /bin/ls -td backups/*/ | head -n 1)
 .DEFAULT_GOAL := help
 .PHONY: *
 
+install: ## Load submodules and install dependencies
+	@echo Updating submodules...
+	@git submodule init && git submodule update
+
 build: ## Backup current pcbs, run ergogen, restore traces
 	@$(MAKE) backup
 	@$(MAKE) ergogen
