@@ -299,7 +299,7 @@ pcbs:
 
       # Controller
       promicro:
-        what: nice_nano_pretty
+        what: infused-kim/nice_nano_pretty
         params:
           traces: true
           show_labels: false
@@ -339,7 +339,7 @@ pcbs:
       # Key Area
       # Regular keys with hotswap
       choc_hotswap:
-        what: choc
+        what: infused-kim/choc
         where: [key]
         params:
           reverse: true
@@ -356,7 +356,7 @@ pcbs:
 
       # 1.5u thumb key
       choc_hotswap_1_5u:
-        what: choc
+        what: infused-kim/choc
         where: [key_long]
         params:
           reverse: true
@@ -372,7 +372,7 @@ pcbs:
           rotate: -180
 
       diode:
-        what: diode
+        what: infused-kim/diode
         where: [key, key_long]
         params:
           from: "{{colrow}}"
@@ -383,7 +383,7 @@ pcbs:
 
       # Prevent cut off of pad by trackpoint mounting hole
       choc_tp_flipped:
-        what: choc
+        what: infused-kim/choc
         where: [key_tp_flipped]
         params:
           reverse: true
@@ -399,7 +399,7 @@ pcbs:
           rotate: 0
 
       diode_flipped:
-        what: diode
+        what: infused-kim/diode
         where: [key_tp_flipped]
         params:
           from: "{{colrow}}"
@@ -411,7 +411,7 @@ pcbs:
 
       # Controller Area
       trackpoint_mount:
-        what: trackpoint_mount
+        what: infused-kim/trackpoint_mount
         params:
           reverse: true
           show_outline_t430: false
@@ -420,7 +420,7 @@ pcbs:
           ref: tp_mount
 
       display:
-        what: nice_view
+        what: infused-kim/nice_view
         params:
           reverse: true
           MOSI: DPD
@@ -432,7 +432,7 @@ pcbs:
           ref: disp
 
       conn_battery:
-        what: conn_molex_pico_ezmate_1x02
+        what: infused-kim/conn_molex_pico_ezmate_1x02
         params:
           reverse: true
           pad_1: BAT_P
@@ -442,7 +442,7 @@ pcbs:
           rotate: 180
 
       conn_battery_icon:
-        what: icon_bat
+        what: infused-kim/icon_bat
         params:
           reverse: true
           spacing: 1.5
@@ -452,7 +452,7 @@ pcbs:
           rotate: 180
 
       pads_bat:
-        what: pads
+        what: infused-kim/pads
         params:
           reverse: true
           width: 1.25
@@ -466,7 +466,7 @@ pcbs:
           rotate: -180
 
       pads_bat_icon:
-        what: icon_bat
+        what: infused-kim/icon_bat
         params:
           reverse: true
           spacing: 1.5
@@ -476,7 +476,7 @@ pcbs:
           rotate: 180
 
       conn_trackpoint:
-        what: conn_molex_pico_ezmate_1x05
+        what: infused-kim/conn_molex_pico_ezmate_1x05
         params:
           reverse: true
           side: F
@@ -490,7 +490,7 @@ pcbs:
           rotate: 180
 
       pads_trackpoint:
-        what: pads
+        what: infused-kim/pads
         params:
           reverse: true
           width: 1
@@ -516,7 +516,7 @@ pcbs:
           rotate: 180
 
       trackpoint_reset_circuit:
-        what: smd_0805
+        what: infused-kim/smd_0805
         params:
           reverse: true
           space: 1
@@ -551,7 +551,7 @@ pcbs:
           rotate: 180
 
       power_switch:
-        what: switch_power
+        what: infused-kim/switch_power
         params:
           reverse: true
           from: BAT_P
@@ -561,7 +561,7 @@ pcbs:
           rotate: 0
 
       reset_switch:
-        what: switch_reset
+        what: infused-kim/switch_reset
         params:
           reverse: true
           from: GND
@@ -571,7 +571,7 @@ pcbs:
           rotate: 0
 
       text_version:
-        what: text
+        what: infused-kim/text
         params:
           reverse: true
           text: *kb_version
@@ -579,7 +579,7 @@ pcbs:
           ref: text_version
 
       text_jlc_order_num:
-        what: text
+        what: infused-kim/text
         params:
           reverse: true
           text: "JLCJLCJLCJLC"
