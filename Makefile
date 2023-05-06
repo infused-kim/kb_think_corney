@@ -12,16 +12,24 @@ install: ## Load submodules and install dependencies
 	@echo Updating submodules...
 	@git submodule init && git submodule update
 
-build: ## Backup current pcbs, run ergogen, restore traces
-	@$(MAKE) backup
-	@$(MAKE) ergogen
-	@$(MAKE) ergogen-deploy
+	@echo Installing ergogen...
+	@npm i -g ergogen
+
+build: ## Backup current pcbs, run ergogen, update pcb to v7, lock traces, restore traces from backup
+	@$(MAKE) build-nt
+	@echo "\n"
 	@$(MAKE) restore-traces
 
-build-nt: ## Backup current pcbs, run ergogen, but don't restore traces
+build-nt: ## Same as `build`, but don't restore traces
 	@$(MAKE) backup
+	@echo "\n"
 	@$(MAKE) ergogen
+	@echo "\n"
 	@$(MAKE) ergogen-deploy
+	@echo "\n"
+	@$(MAKE) update-pcb
+	@echo "\n"
+	@$(MAKE) lock-traces
 
 backup: ## Backups the current pcb folder
 	@echo "Creating backup $(BACKUP_PATH)..."
@@ -33,11 +41,20 @@ ergogen: ## Run ergogen
 	@ergogen ./ergogen -o ./ergogen/output
 
 ergogen-deploy: ## Copy ergogen output to pcb folder
+	@echo "Copying ergogen generated PCB to pcb/..."
 	@cp -r ./ergogen/output/pcbs/*.kicad_pcb pcb/
+
+update-pcb: ## Updates KiCad PCB file from v5 to v7
+	@echo "Updating PCB from v5 to v7..."
+	@$(KICAD_PY_PATH) resources/ergogen_helper.py update-pcb pcb/$(PCB_FILE_NAME)
+
+lock-traces: ## Locks all traces in pcb file
+	@echo "Locking traces in pcb..."
+	@$(KICAD_PY_PATH) resources/ergogen_helper.py --no-backup lock-traces pcb/$(PCB_FILE_NAME)
 
 restore-traces: ## Restores traces from latest backup
 	@echo "Restoring traces..."
-	@$(KICAD_PY_PATH) resources/ergogen-helper.py $(LAST_BACKUP_PATH)/$(PCB_FILE_NAME) pcb/$(PCB_FILE_NAME)
+	@$(KICAD_PY_PATH) resources/ergogen_helper.py --no-backup copy-traces --unlocked-only $(LAST_BACKUP_PATH)/$(PCB_FILE_NAME) pcb/$(PCB_FILE_NAME)
 
 convert-stl: ## Convert erogen jscad files to stl
 	@echo "Converting jscad files to stl..."
