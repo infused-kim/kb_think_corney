@@ -46,15 +46,15 @@ ergogen-deploy: ## Copy ergogen output to pcb folder
 
 update-pcb: ## Updates KiCad PCB file from v5 to v7
 	@echo "Updating PCB from v5 to v7..."
-	@$(KICAD_PY_PATH) resources/ergogen_helper.py update-pcb pcb/$(PCB_FILE_NAME)
+	@$(KICAD_PY_PATH) resources/kb_ergogen_helper/ergogen_helper.py update-pcb pcb/$(PCB_FILE_NAME)
 
 lock-traces: ## Locks all traces in pcb file
 	@echo "Locking traces in pcb..."
-	@$(KICAD_PY_PATH) resources/ergogen_helper.py --no-backup lock-traces pcb/$(PCB_FILE_NAME)
+	@$(KICAD_PY_PATH) resources/kb_ergogen_helper/ergogen_helper.py --no-backup lock-traces pcb/$(PCB_FILE_NAME)
 
 restore-traces: ## Restores traces from latest backup
 	@echo "Restoring traces..."
-	@$(KICAD_PY_PATH) resources/ergogen_helper.py --no-backup copy-traces --unlocked-only $(LAST_BACKUP_PATH)/$(PCB_FILE_NAME) pcb/$(PCB_FILE_NAME)
+	@$(KICAD_PY_PATH) resources/kb_ergogen_helper/ergogen_helper.py --no-backup copy-traces --unlocked-only $(LAST_BACKUP_PATH)/$(PCB_FILE_NAME) pcb/$(PCB_FILE_NAME)
 
 convert-stl: ## Convert erogen jscad files to stl
 	@echo "Converting jscad files to stl..."
@@ -62,6 +62,6 @@ convert-stl: ## Convert erogen jscad files to stl
 
 help: ## Show this help
 	@{ \
-		SCRIPT_PATH=$$(echo "resources/makefile_help.sh"); \
+		SCRIPT_PATH=$$(echo "resources/kb_ergogen_helper/makefile_help.sh"); \
 		sh "$$SCRIPT_PATH" "$(MAKEFILE_LIST)"; \
 	}
