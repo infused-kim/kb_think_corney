@@ -3,10 +3,10 @@ vars:
 units:
   # Key Spacing
   # cx and cy are ergogen's choc spacing units.
-  kx: cx
-  ky: cy
-  kxo: 0.5 * cx
-  kyo: 0.5 * cy
+  kx: u
+  ky: u
+  kxo: 0.5 * kx
+  kyo: 0.5 * ky
   px: kx + 2
   py: ky + 2
 
@@ -22,16 +22,28 @@ units:
   keycaps_1_5_xo: 0.5 * keycaps_1_5_x
   keycaps_1_5_yo: 0.5 * keycaps_1_5_y
 
-  # PCB Edge Padding
-  pcb_outline_padding_outer: 1
+  # This allows the layout to adopt based on whether
+  # the inner thumb key is a 1u or 1.5u key
+  inner_thumb_x: 1.5 * kx
+  inner_thumb_y: ky
+  inner_thumb_xo: 0.5 * inner_thumb_x
+  inner_thumb_yo: 0.5 * inner_thumb_y
 
+  # PCB Edge Padding
+  pcb_outline_padding_left: -0.35
+  pcb_outline_padding_top: -0.35
+  pcb_outline_padding_bottom: -0.35
+  thumb_inner_move_x: 0.804
+  thumb_inner_move_y: -0.230
   # Thumb key splay
   splay_thumb_home: -15
   splay_thumb_inner: 90 + -15
 
   # Thumb key offset
   # Spacing required for outline to get a straight edge for the inner side
-  thumb_edge_offset: 3
+  # MX Spaced: -0.1
+  # Choc Spaced: 2.25
+  thumb_edge_offset: -0.1
 
   # Font units
   font_x: 1
@@ -41,10 +53,10 @@ units:
 
   # Nice Nano
   # The nice nano footprint's center doesn't account
-  # for the 2.54mm "overhang" of the PCB beyond the pins.
-  mcu_spacing_x: 2.72
-  mcu_x: 17.78 + mcu_spacing_x
-  mcu_y: 33.11
+  mcu_spacing_left: 1.25
+  mcu_spacing_right: 1.5
+  mcu_x: 17.78
+  mcu_y: 33.0
   mcu_xo: 0.5 * mcu_x
   mcu_yo: 0.5 * mcu_y
 
@@ -174,8 +186,8 @@ points:
             key:
               width: 1.5kx
               splay: splay_thumb_inner
-              spread: 1kx+2.7
-              stagger: 2.3
+              spread: 1kx + 2.7 + thumb_inner_move_x
+              stagger: 2.3 + thumb_inner_move_y
               tags: key_long
               column_net: C5
       rows:
@@ -189,7 +201,7 @@ points:
     controller:
       anchor:
         ref: matrix_inner_top
-        shift: [kxo + mcu_xo, kyo -2.25 - mcu_yo]
+        shift: [kxo + mcu_xo + mcu_spacing_left, kyo - mcu_yo + pcb_outline_padding_top]
       key:
         name: mcu
         width: mcu_x
@@ -198,21 +210,21 @@ points:
     #
     # Helper Points
     #
-    edge_inner_top:
-      anchor:
-        ref: mcu
-        shift: [+mcu_xo, +mcu_yo]
-      key:
-        name: edge_inner_top
-
-    edge_thumb_cluster:
+    edge_thumb_cluster_top:
       anchor:
         ref: thumbs_inner_cluster
-        shift: [+keycaps_1_5_xo, -keycaps_1_5_yo - thumb_edge_offset]
+        shift: [+inner_thumb_xo, -inner_thumb_yo - thumb_edge_offset]
       key:
-        name: edge_thumb_cluster
+        name: edge_thumb_cluster_top
         # thumbs_inner_cluster is splayed. So here we "unsplay" it
         splay: -splay_thumb_home - splay_thumb_inner
+
+    edge_thumb_cluster_bottom:
+      anchor:
+        ref: thumbs_inner_cluster
+        shift: [-inner_thumb_xo, -inner_thumb_yo - thumb_edge_offset]
+      key:
+        name: edge_thumb_cluster_bottom
 
     #
     # Part Positioning
@@ -247,7 +259,7 @@ points:
 
     power_switch:
       anchor:
-        ref: edge_thumb_cluster
+        ref: edge_thumb_cluster_top
         shift: [-sw_power_xo - 0.5, +sw_power_yo + 1]
       key:
         name: sw_power
@@ -612,69 +624,69 @@ outlines:
         # Top
         # Outer
         - ref: matrix_outer_top
-          shift: [-kxo - pcb_outline_padding_outer, +kyo]
+          shift: [-kxo - pcb_outline_padding_left, +kyo + pcb_outline_padding_top]
         - ref: matrix_outer_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Pinky
         - ref: matrix_pinky_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo, +kyo + pcb_outline_padding_top]
         - ref: matrix_pinky_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Ring
         - ref: matrix_ring_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo, +kyo + pcb_outline_padding_top]
         - ref: matrix_ring_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Middle
         - ref: matrix_middle_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo, +kyo + pcb_outline_padding_top]
         - ref: matrix_middle_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Index
         - ref: matrix_index_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo, +kyo + pcb_outline_padding_top]
         - ref: matrix_index_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Inner
         - ref: matrix_inner_top
-          shift: [-kxo, +kyo]
+          shift: [-kxo, +kyo + pcb_outline_padding_top]
         - ref: matrix_inner_top
-          shift: [+kxo, +kyo]
+          shift: [+kxo, +kyo + pcb_outline_padding_top]
 
         # Controller
         - ref: mcu
-          shift: [-mcu_xo, +mcu_yo]
-        - ref: edge_inner_top
-          shift: [0, 0]
+          shift: [-mcu_xo - mcu_spacing_left, +mcu_yo]
+        - ref: mcu
+          shift: [+mcu_xo + mcu_spacing_right, +mcu_yo]
 
         # Right Side
         # Inner Thumb
-        - ref: edge_thumb_cluster
+        - ref: edge_thumb_cluster_top
           shift: [0, 0]
-        - ref: thumbs_inner_cluster
-          shift: [-1.5kxo, -kyo - thumb_edge_offset]
+        - ref: edge_thumb_cluster_bottom
+          shift: [0 - pcb_outline_padding_bottom, 0]
 
         # Bottom
         # Inner thumb
         - ref: thumbs_inner_cluster
-          shift: [-1.5kxo, +kyo]
+          shift: [-inner_thumb_xo - pcb_outline_padding_bottom, +inner_thumb_yo]
 
         # Outer Thumb
         - ref: thumbs_outer_cluster
-          shift: [-kxo, -kyo]
+          shift: [-kxo, -kyo - pcb_outline_padding_bottom]
 
         # Pinky y and ring x
         - ref: matrix_pinky_bottom
-          shift: [kxo + 1kx, -kyo]
+          shift: [kxo + 1kx, -kyo - pcb_outline_padding_bottom]
 
         # Outer
         - ref: matrix_outer_bottom
-          shift: [-kxo - pcb_outline_padding_outer, -kyo]
+          shift: [-kxo - pcb_outline_padding_left, -kyo - pcb_outline_padding_bottom]
 
   # Combination preview showing outline and keys.
   combo:
