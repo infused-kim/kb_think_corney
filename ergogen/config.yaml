@@ -1,10 +1,62 @@
 vars:
   version: &kb_version 'ThinkCorney v1-b1'
+
+settings:
+  preset_units:
+    $extends: presets.corne_choc_mx_spacing.units
+
+presets:
+  corne_choc:
+    units:
+      cfg_kx: cx
+      cfg_ky: cy
+      cfg_keycaps_x: 17.5
+      cfg_keycaps_y: 16.5
+      cfg_keycaps_1_5_x: 26.5
+      cfg_keycaps_1_5_y: 16.5
+
+      # Thumb Cluster offset from bottom index finger key
+      cfg_thumb_cluster_offset_x: -8.5
+      cfg_thumb_cluster_offset_y: -19.625
+
+      # Distance adjustment of inner thumb key
+      cfg_thumb_inner_move_x: 0
+      cfg_thumb_inner_move_y: 0
+
+      # Spacing required for outline to get a straight edge for the inner side
+      cfg_thumb_edge_offset: 1.0
+
+      # Top & Bottom padding for outline
+      cfg_pcb_outline_padding_top: 0.1
+      cfg_pcb_outline_padding_left: 0
+
+  corne_choc_mx_spacing:
+    units:
+      $extends: presets.choc_v1.units
+      cfg_kx: u
+      cfg_ky: u
+
+      # Thumb Cluster offset from bottom index finger key
+      cfg_thumb_cluster_offset_x: -9.5
+
+      # Distance adjustment of inner thumb key
+      cfg_thumb_inner_move_x: 0.804
+      cfg_thumb_inner_move_y: -0.230
+
+      # Spacing required for outline to get a straight edge for the inner side
+      cfg_thumb_edge_offset: -0.1
+
+      # Top & Bottom padding for outline
+      cfg_pcb_outline_padding_top: -0.35
+      cfg_pcb_outline_padding_left: -0.5
+
 units:
+  $extends: settings.preset_units
+
   # Key Spacing
   # cx and cy are ergogen's choc spacing units.
-  kx: cx
-  ky: cx
+  kx: cfg_kx
+  ky: cfg_ky
   kxo: 0.5 * kx
   kyo: 0.5 * ky
   px: kx + 2
@@ -15,10 +67,10 @@ units:
   # to add spacing between the keys.
   # The numbers below are the actual keycap sizes that will be displayed
   # in the pcb to check proper alignment and spacing
-  keycaps_x: 17.5
-  keycaps_y: 16.5
-  keycaps_1_5_x: 26.5
-  keycaps_1_5_y: 16.5
+  keycaps_x: cfg_keycaps_x
+  keycaps_y: cfg_keycaps_y
+  keycaps_1_5_x: cfg_keycaps_1_5_x
+  keycaps_1_5_y: cfg_keycaps_1_5_y
   keycaps_1_5_xo: 0.5 * keycaps_1_5_x
   keycaps_1_5_yo: 0.5 * keycaps_1_5_y
 
@@ -29,36 +81,25 @@ units:
   inner_thumb_xo: 0.5 * inner_thumb_x
   inner_thumb_yo: 0.5 * inner_thumb_y
 
-  # PCB Edge Padding
-  # Top/Bottom Choc: 0.1
-  # Top/Bottom MX: -0.35
-  pcb_outline_padding_top: 0.1
-  pcb_outline_padding_bottom: 0.1
-  pcb_outline_padding_left: 0
+  # Thumb Cluster offset from bottom index finger key
+  thumb_cluster_offset_x: cfg_thumb_cluster_offset_x
+  thumb_cluster_offset_y: cfg_thumb_cluster_offset_y
 
-  # Choc: 0
-  # MX: 0.804
-  thumb_inner_move_x: 0
-
-  # Choc: 0
-  # MX: -0.230
-  thumb_inner_move_y: 0
+  # Thumb Cluster Offsets
+  thumb_inner_move_x: cfg_thumb_inner_move_x
+  thumb_inner_move_y: cfg_thumb_inner_move_y
 
   # Thumb key splay
   splay_thumb_home: -15
   splay_thumb_inner: 90 + -15
 
-  # Thumb key offset
   # Spacing required for outline to get a straight edge for the inner side
-  # MX Spaced: -0.1
-  # Choc Spaced: 1.35
-  thumb_edge_offset: 1.0
+  thumb_edge_offset: cfg_thumb_edge_offset
 
-  # Thumb Cluster offset from bottom index finger key
-  # MX: -9.5
-  # Choc: -8.5
-  thumb_cluster_offset_x: -8.5
-  thumb_cluster_offset_y: -19.625
+  # PCB Edge Padding
+  pcb_outline_padding_top: cfg_pcb_outline_padding_top
+  pcb_outline_padding_bottom: cfg_pcb_outline_padding_top
+  pcb_outline_padding_left: cfg_pcb_outline_padding_left
 
   # Font units
   font_x: 1
