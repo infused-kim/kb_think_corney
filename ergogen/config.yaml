@@ -3,8 +3,8 @@ vars:
 units:
   # Key Spacing
   # cx and cy are ergogen's choc spacing units.
-  kx: u
-  ky: u
+  kx: cx
+  ky: cx
   kxo: 0.5 * kx
   kyo: 0.5 * ky
   px: kx + 2
@@ -30,11 +30,20 @@ units:
   inner_thumb_yo: 0.5 * inner_thumb_y
 
   # PCB Edge Padding
-  pcb_outline_padding_left: -0.35
-  pcb_outline_padding_top: -0.35
-  pcb_outline_padding_bottom: -0.35
-  thumb_inner_move_x: 0.804
-  thumb_inner_move_y: -0.230
+  # Top/Bottom Choc: 0.1
+  # Top/Bottom MX: -0.35
+  pcb_outline_padding_top: 0.1
+  pcb_outline_padding_bottom: 0.1
+  pcb_outline_padding_left: 0
+
+  # Choc: 0
+  # MX: 0.804
+  thumb_inner_move_x: 0
+
+  # Choc: 0
+  # MX: -0.230
+  thumb_inner_move_y: 0
+
   # Thumb key splay
   splay_thumb_home: -15
   splay_thumb_inner: 90 + -15
@@ -42,8 +51,14 @@ units:
   # Thumb key offset
   # Spacing required for outline to get a straight edge for the inner side
   # MX Spaced: -0.1
-  # Choc Spaced: 2.25
-  thumb_edge_offset: -0.1
+  # Choc Spaced: 1.35
+  thumb_edge_offset: 1.0
+
+  # Thumb Cluster offset from bottom index finger key
+  # MX: -9.5
+  # Choc: -8.5
+  thumb_cluster_offset_x: -8.5
+  thumb_cluster_offset_y: -19.625
 
   # Font units
   font_x: 1
@@ -171,7 +186,7 @@ points:
         tags: key
       anchor:
         ref: matrix_index_bottom
-        shift: [-9.5, -19.625]
+        shift: [thumb_cluster_offset_x, thumb_cluster_offset_y]
       columns:
         outer:
             key:
