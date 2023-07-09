@@ -3,7 +3,7 @@ vars:
 
 settings:
   preset:
-    $extends: presets.kim
+    $extends: presets.corne_choc_mx_spacing
 
 presets:
   corne_choc:
@@ -769,7 +769,7 @@ outlines:
   board:
     - what: polygon
       operation: stack
-      fillet: 1
+      fillet: 0.5
       points:
 
         # Top
