@@ -2,138 +2,133 @@ vars:
   version: &kb_version 'ThinkCorney v1-b1'
 
 settings:
-  preset_units:
-    $extends: presets.kim.units
+  preset:
+    $extends: presets.kim
 
 presets:
   corne_choc:
-    units:
+    # Stagger
+    cfg_stagger_outer: 0
+    cfg_stagger_pinky: 0
+    cfg_stagger_ring: 4.75
+    cfg_stagger_middle: 2.375
+    cfg_stagger_index: -2.375
+    cfg_stagger_inner: -2.375
 
-      # Stagger
-      cfg_stagger_outer: 0
-      cfg_stagger_pinky: 0
-      cfg_stagger_ring: 4.75
-      cfg_stagger_middle: 2.375
-      cfg_stagger_index: -2.375
-      cfg_stagger_inner: -2.375
+    # Splay
+    cfg_splay_thumb_home: -15
+    cfg_splay_thumb_inner: 90 + -15
 
-      # Splay
-      cfg_splay_thumb_home: -15
-      cfg_splay_thumb_inner: 90 + -15
+    # Key Size
+    cfg_kx: cx
+    cfg_ky: cy
+    cfg_keycaps_x: 17.5
+    cfg_keycaps_y: 16.5
 
-      # Key Size
-      cfg_kx: cx
-      cfg_ky: cy
-      cfg_keycaps_x: 17.5
-      cfg_keycaps_y: 16.5
+    # Thumb Cluster offset from bottom index finger key
+    cfg_thumb_cluster_offset_x: -8.5
+    cfg_thumb_cluster_offset_y: -19.625
 
-      # Thumb Cluster offset from bottom index finger key
-      cfg_thumb_cluster_offset_x: -8.5
-      cfg_thumb_cluster_offset_y: -19.625
+    # Distance adjustment of thumb key to align with rotation
+    cfg_thumb_home_move_x:  2
+    cfg_thumb_home_move_y: -2.7
+    cfg_thumb_inner_move_x: 2.7
+    cfg_thumb_inner_move_y: 2.3
 
-      # Distance adjustment of thumb key to align with rotation
-      cfg_thumb_home_move_x:  2
-      cfg_thumb_home_move_y: -2.7
-      cfg_thumb_inner_move_x: 2.7
-      cfg_thumb_inner_move_y: 2.3
+    # Spacing required for outline to get a straight edge for the inner side
+    cfg_thumb_edge_offset: 1.5
 
-      # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: 1.5
+    # Top & Bottom padding for outline
+    cfg_pcb_outline_padding_top: 0.1
+    cfg_pcb_outline_padding_left: 0
+    cfg_pcb_outline_padding_right: 0
 
-      # Top & Bottom padding for outline
-      cfg_pcb_outline_padding_top: 0.1
-      cfg_pcb_outline_padding_left: 0
-      cfg_pcb_outline_padding_right: 0
-
-      # 1.5u rotated inner thumb settings
-      cfg_keycaps_thumb_inner_x: 26.5
-      cfg_keycaps_thumb_inner_y: 16.5
-      cfg_thumb_inner_width: 1.5
-      cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
-      cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
-      cfg_edge_thumb_cluster_bottom_shift_x: -1 * cfg_thumb_inner_width * 0.5 * cfg_kx
-      cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
+    # 1.5u rotated inner thumb settings
+    cfg_keycaps_thumb_inner_x: 26.5
+    cfg_keycaps_thumb_inner_y: 16.5
+    cfg_thumb_inner_width: 1.5
+    cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
+    cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
+    cfg_edge_thumb_cluster_bottom_shift_x: -1 * cfg_thumb_inner_width * 0.5 * cfg_kx
+    cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
 
   corne_choc_mx_spacing:
-    units:
-      $extends: presets.corne_choc.units
+    $extends: presets.corne_choc
 
-      # Key size
-      cfg_kx: u
-      cfg_ky: u
+    # Key size
+    cfg_kx: u
+    cfg_ky: u
 
-      # Thumb Cluster offset from bottom index finger key
-      cfg_thumb_cluster_offset_x: -9.5
+    # Thumb Cluster offset from bottom index finger key
+    cfg_thumb_cluster_offset_x: -9.5
 
-      # Distance adjustment of inner thumb key
-      cfg_thumb_inner_move_x: 3.504
-      cfg_thumb_inner_move_y: 2.07
+    # Distance adjustment of inner thumb key
+    cfg_thumb_inner_move_x: 3.504
+    cfg_thumb_inner_move_y: 2.07
 
-      # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: -0.1
+    # Spacing required for outline to get a straight edge for the inner side
+    cfg_thumb_edge_offset: -0.1
 
-      # Top & Bottom padding for outline
-      cfg_pcb_outline_padding_top: -0.35
-      cfg_pcb_outline_padding_left: -0.5
+    # Top & Bottom padding for outline
+    cfg_pcb_outline_padding_top: -0.35
+    cfg_pcb_outline_padding_left: -0.5
 
   chocofi:
-    units:
-      $extends: presets.corne_choc.units
+    $extends: presets.corne_choc
 
-      # Stagger
-      cfg_stagger_ring: 12
-      cfg_stagger_middle: 6
-      cfg_stagger_index: -6.62
-      cfg_stagger_inner: -2.38
+    # Stagger
+    cfg_stagger_ring: 12
+    cfg_stagger_middle: 6
+    cfg_stagger_index: -6.62
+    cfg_stagger_inner: -2.38
 
-      # Thumb Cluster offset from bottom index finger key
-      cfg_thumb_cluster_offset_x: -6
-      cfg_thumb_cluster_offset_y: -20
+    # Thumb Cluster offset from bottom index finger key
+    cfg_thumb_cluster_offset_x: -6
+    cfg_thumb_cluster_offset_y: -20
 
-      # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: 0
+    # Spacing required for outline to get a straight edge for the inner side
+    cfg_thumb_edge_offset: 0
 
-      cfg_pcb_outline_padding_right: 1.2
+    cfg_pcb_outline_padding_right: 1.2
 
   kim:
-    units:
-      $extends: presets.corne_choc.units
+    $extends: presets.corne_choc
 
-      # Stagger
-      cfg_stagger_ring: 15
-      cfg_stagger_middle: 4
-      cfg_stagger_index: -5
-      cfg_stagger_inner: -2.38
+    # Stagger
+    cfg_stagger_ring: 15
+    cfg_stagger_middle: 4
+    cfg_stagger_index: -5
+    cfg_stagger_inner: -2.38
 
-      # Splay
-      cfg_splay_thumb_home: 0
-      cfg_splay_thumb_inner: -15
+    # Splay
+    cfg_splay_thumb_home: 0
+    cfg_splay_thumb_inner: -15
 
-      # Thumb Cluster offset from bottom index finger key
-      cfg_thumb_cluster_offset_x: -8.5
-      cfg_thumb_cluster_offset_y: -21
+    # Thumb Cluster offset from bottom index finger key
+    cfg_thumb_cluster_offset_x: -8.5
+    cfg_thumb_cluster_offset_y: -21
 
-      # Distance adjustment of thumb key to align with rotation
-      cfg_thumb_home_move_x: 0
-      cfg_thumb_home_move_y: 0
-      cfg_thumb_inner_move_x: 1.8
-      cfg_thumb_inner_move_y: -2.65
+    # Distance adjustment of thumb key to align with rotation
+    cfg_thumb_home_move_x: 0
+    cfg_thumb_home_move_y: 0
+    cfg_thumb_inner_move_x: 1.8
+    cfg_thumb_inner_move_y: -2.65
 
-      # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: 7.6
-      cfg_pcb_outline_padding_right: 0
+    # Spacing required for outline to get a straight edge for the inner side
+    cfg_thumb_edge_offset: 7.6
+    cfg_pcb_outline_padding_right: 0
 
-      # Make the inner thumb 1u instead of 1.5u and don't rotate it
-      cfg_thumb_inner_width: 1
-      cfg_keycaps_thumb_inner_x: 17.5
-      cfg_keycaps_thumb_inner_y: 16.5
-      cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx + cfg_thumb_edge_offset
-      cfg_edge_thumb_cluster_top_shift_y: 0.5 * cfg_ky
-      cfg_edge_thumb_cluster_bottom_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
-      cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky
+    # Make the inner thumb 1u instead of 1.5u and don't rotate it
+    cfg_thumb_inner_width: 1
+    cfg_keycaps_thumb_inner_x: 17.5
+    cfg_keycaps_thumb_inner_y: 16.5
+    cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx + cfg_thumb_edge_offset
+    cfg_edge_thumb_cluster_top_shift_y: 0.5 * cfg_ky
+    cfg_edge_thumb_cluster_bottom_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
+    cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky
 
 units:
-  $extends: settings.preset_units
+  $extends: settings.preset
 
   # Stagger
   stagger_outer: cfg_stagger_outer
