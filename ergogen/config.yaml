@@ -26,8 +26,6 @@ presets:
       cfg_ky: cy
       cfg_keycaps_x: 17.5
       cfg_keycaps_y: 16.5
-      cfg_keycaps_1_5_x: 26.5
-      cfg_keycaps_1_5_y: 16.5
 
       # Thumb Cluster offset from bottom index finger key
       cfg_thumb_cluster_offset_x: -8.5
@@ -39,16 +37,22 @@ presets:
       cfg_thumb_inner_move_x: 2.7
       cfg_thumb_inner_move_y: 2.3
 
-      # Make the inner thumb 1.5x
-      cfg_thumb_inner_width: 1.5
-
       # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: 1.0
+      cfg_thumb_edge_offset: 1.5
 
       # Top & Bottom padding for outline
       cfg_pcb_outline_padding_top: 0.1
       cfg_pcb_outline_padding_left: 0
       cfg_pcb_outline_padding_right: 0
+
+      # 1.5u rotated inner thumb settings
+      cfg_keycaps_thumb_inner_x: 26.5
+      cfg_keycaps_thumb_inner_y: 16.5
+      cfg_thumb_inner_width: 1.5
+      cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
+      cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
+      cfg_edge_thumb_cluster_bottom_shift_x: -1 * cfg_thumb_inner_width * 0.5 * cfg_kx
+      cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
 
   corne_choc_mx_spacing:
     units:
@@ -107,18 +111,26 @@ presets:
 
       # Thumb Cluster offset from bottom index finger key
       cfg_thumb_cluster_offset_x: -8.5
-      cfg_thumb_cluster_offset_y: -20
+      cfg_thumb_cluster_offset_y: -21
 
       # Distance adjustment of thumb key to align with rotation
       cfg_thumb_home_move_x: 0
       cfg_thumb_home_move_y: 0
-
-      # Make the inner thumb 1u instead of 1.5u
-      cfg_thumb_inner_width: 1
+      cfg_thumb_inner_move_x: 1.8
+      cfg_thumb_inner_move_y: -2.65
 
       # Spacing required for outline to get a straight edge for the inner side
-      cfg_thumb_edge_offset: 1.5
+      cfg_thumb_edge_offset: 7.6
       cfg_pcb_outline_padding_right: 0
+
+      # Make the inner thumb 1u instead of 1.5u and don't rotate it
+      cfg_thumb_inner_width: 1
+      cfg_keycaps_thumb_inner_x: 17.5
+      cfg_keycaps_thumb_inner_y: 16.5
+      cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx + cfg_thumb_edge_offset
+      cfg_edge_thumb_cluster_top_shift_y: 0.5 * cfg_ky
+      cfg_edge_thumb_cluster_bottom_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
+      cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky
 
 units:
   $extends: settings.preset_units
@@ -156,10 +168,10 @@ units:
   # in the pcb to check proper alignment and spacing
   keycaps_x: cfg_keycaps_x
   keycaps_y: cfg_keycaps_y
-  keycaps_1_5_x: cfg_keycaps_1_5_x
-  keycaps_1_5_y: cfg_keycaps_1_5_y
-  keycaps_1_5_xo: 0.5 * keycaps_1_5_x
-  keycaps_1_5_yo: 0.5 * keycaps_1_5_y
+  keycaps_thumb_inner_x: cfg_keycaps_thumb_inner_x
+  keycaps_thumb_inner_y: cfg_keycaps_thumb_inner_y
+  keycaps_thumb_inner_xo: 0.5 * keycaps_thumb_inner_x
+  keycaps_thumb_inner_yo: 0.5 * keycaps_thumb_inner_y
 
   # This allows the layout to adopt based on whether
   # the inner thumb key is a 1u or 1.5u key
@@ -332,7 +344,7 @@ points:
               splay: splay_thumb_inner
               spread: 1kx + thumb_inner_move_x
               stagger: thumb_inner_move_y
-              tags: key_long
+              tags: key_thumb_inner
               column_net: C5
       rows:
         # Thumbs only have one row.
@@ -357,7 +369,7 @@ points:
     edge_thumb_cluster_top:
       anchor:
         ref: thumbs_inner_cluster
-        shift: [+inner_thumb_xo, -inner_thumb_yo - thumb_edge_offset]
+        shift: [cfg_edge_thumb_cluster_top_shift_x, cfg_edge_thumb_cluster_top_shift_y]
       key:
         name: edge_thumb_cluster_top
         # thumbs_inner_cluster is splayed. So here we "unsplay" it
@@ -366,7 +378,7 @@ points:
     edge_thumb_cluster_bottom:
       anchor:
         ref: thumbs_inner_cluster
-        shift: [-inner_thumb_xo, -inner_thumb_yo - thumb_edge_offset]
+        shift: [cfg_edge_thumb_cluster_bottom_shift_x, cfg_edge_thumb_cluster_bottom_shift_y]
       key:
         name: edge_thumb_cluster_bottom
 
@@ -511,16 +523,16 @@ pcbs:
           rotate: -180
 
       # 1.5u thumb key
-      choc_hotswap_1_5u:
+      choc_hotswap_thumb_inner:
         what: infused-kim/choc
-        where: [key_long]
+        where: [key_thumb_inner]
         params:
           reverse: true
           hotswap: true
           hotswap_tht: true
           keycaps: true
-          keycaps_x: keycaps_1_5_x
-          keycaps_y: keycaps_1_5_y
+          keycaps_x: keycaps_thumb_inner_x
+          keycaps_y: keycaps_thumb_inner_y
           from: "{{column_net}}"
           to: "{{colrow}}"
         adjust:
@@ -529,7 +541,7 @@ pcbs:
 
       diode:
         what: infused-kim/diode
-        where: [key, key_long]
+        where: [key, key_thumb_inner]
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -817,8 +829,8 @@ outlines:
 
         # Bottom
         # Inner thumb
-        - ref: thumbs_inner_cluster
-          shift: [-inner_thumb_xo - pcb_outline_padding_bottom, +inner_thumb_yo]
+        - ref: thumbs_home_cluster
+          shift: [+kxo, -kyo - pcb_outline_padding_bottom]
 
         # Outer Thumb
         - ref: thumbs_outer_cluster
