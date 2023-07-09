@@ -3,11 +3,21 @@ vars:
 
 settings:
   preset_units:
-    $extends: presets.corne_choc_mx_spacing.units
+    $extends: presets.chocofi.units
 
 presets:
   corne_choc:
     units:
+
+      # Stagger
+      cfg_stagger_outer: 0
+      cfg_stagger_pinky: 0
+      cfg_stagger_ring: 4.75
+      cfg_stagger_middle: 2.375
+      cfg_stagger_index: -2.375
+      cfg_stagger_inner: -2.375
+
+      # Key Size
       cfg_kx: cx
       cfg_ky: cy
       cfg_keycaps_x: 17.5
@@ -29,10 +39,13 @@ presets:
       # Top & Bottom padding for outline
       cfg_pcb_outline_padding_top: 0.1
       cfg_pcb_outline_padding_left: 0
+      cfg_pcb_outline_padding_right: 0
 
   corne_choc_mx_spacing:
     units:
-      $extends: presets.choc_v1.units
+      $extends: presets.corne_choc.units
+
+      # Key size
       cfg_kx: u
       cfg_ky: u
 
@@ -50,8 +63,35 @@ presets:
       cfg_pcb_outline_padding_top: -0.35
       cfg_pcb_outline_padding_left: -0.5
 
+  chocofi:
+    units:
+      $extends: presets.corne_choc.units
+
+      # Stagger
+      cfg_stagger_ring: 12
+      cfg_stagger_middle: 6
+      cfg_stagger_index: -6.62
+      cfg_stagger_inner: -2.38
+
+      # Thumb Cluster offset from bottom index finger key
+      cfg_thumb_cluster_offset_x: -6
+      cfg_thumb_cluster_offset_y: -20
+
+      # Spacing required for outline to get a straight edge for the inner side
+      cfg_thumb_edge_offset: 0
+
+      cfg_pcb_outline_padding_right: 1.2
+
 units:
   $extends: settings.preset_units
+
+  # Stagger
+  stagger_outer: cfg_stagger_outer
+  stagger_pinky: cfg_stagger_pinky
+  stagger_ring: cfg_stagger_ring
+  stagger_middle: cfg_stagger_middle
+  stagger_index: cfg_stagger_index
+  stagger_inner: cfg_stagger_inner
 
   # Key Spacing
   # cx and cy are ergogen's choc spacing units.
@@ -100,6 +140,7 @@ units:
   pcb_outline_padding_top: cfg_pcb_outline_padding_top
   pcb_outline_padding_bottom: cfg_pcb_outline_padding_top
   pcb_outline_padding_left: cfg_pcb_outline_padding_left
+  pcb_outline_padding_right: cfg_pcb_outline_padding_right
 
   # Font units
   font_x: 1
@@ -179,25 +220,27 @@ points:
       columns:
         outer:
           key:
+            stagger: stagger_outer
             column_net: C0
         pinky:
           key:
+            stagger: stagger_pinky
             column_net: C1
         ring:
           key:
-            stagger: 4.75
+            stagger: stagger_ring
             column_net: C2
         middle:
           key:
-            stagger: 2.375
+            stagger: stagger_middle
             column_net: C3
         index:
           key:
-            stagger: -2.375
+            stagger: stagger_index
             column_net: C4
         inner:
           key:
-            stagger: -2.375
+            stagger: stagger_inner
             column_net: C5
 
       rows:
@@ -718,7 +761,7 @@ outlines:
         - ref: mcu
           shift: [-mcu_xo - mcu_spacing_left, +mcu_yo]
         - ref: mcu
-          shift: [+mcu_xo + mcu_spacing_right, +mcu_yo]
+          shift: [+mcu_xo + mcu_spacing_right + pcb_outline_padding_right, +mcu_yo]
 
         # Right Side
         # Inner Thumb
