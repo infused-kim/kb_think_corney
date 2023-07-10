@@ -3,7 +3,7 @@ vars:
 
 settings:
   preset:
-    $extends: presets.corne_choc_mx_spacing
+    $extends: presets.kim
 
 presets:
   corne_choc:
@@ -16,6 +16,12 @@ presets:
     cfg_stagger_inner: -2.375
 
     # Splay
+    cfg_splay_outer: 0
+    cfg_splay_pinky: 0
+    cfg_splay_ring: 0
+    cfg_splay_middle: 0
+    cfg_splay_index: 0
+    cfg_splay_inner: 0
     cfg_splay_thumb_home: -15
     cfg_splay_thumb_inner: 90 + -15
 
@@ -97,10 +103,16 @@ presets:
     # Stagger
     cfg_stagger_ring: 15
     cfg_stagger_middle: 4
-    cfg_stagger_index: -5
+    cfg_stagger_index: -8
     cfg_stagger_inner: -2.38
 
     # Splay
+    cfg_splay_outer: 4
+    cfg_splay_pinky: 0
+    cfg_splay_ring: -4
+    cfg_splay_middle: 0
+    cfg_splay_index: 0
+    cfg_splay_inner: 0
     cfg_splay_thumb_home: 0
     cfg_splay_thumb_inner: -15
 
@@ -141,6 +153,12 @@ units:
   # Finger splay
 
   # Thumb key splay
+  splay_outer: cfg_splay_outer
+  splay_pinky: cfg_splay_pinky
+  splay_ring: cfg_splay_ring
+  splay_middle: cfg_splay_middle
+  splay_index: cfg_splay_index
+  splay_inner: cfg_splay_inner
   splay_thumb_home: cfg_splay_thumb_home
   splay_thumb_inner: cfg_splay_thumb_inner
 
@@ -273,26 +291,32 @@ points:
         outer:
           key:
             stagger: stagger_outer
+            splay: splay_outer
             column_net: C0
         pinky:
           key:
             stagger: stagger_pinky
+            splay: splay_pinky
             column_net: C1
         ring:
           key:
             stagger: stagger_ring
+            splay: splay_ring
             column_net: C2
         middle:
           key:
             stagger: stagger_middle
+            splay: splay_middle
             column_net: C3
         index:
           key:
             stagger: stagger_index
+            splay: splay_index
             column_net: C4
         inner:
           key:
             stagger: stagger_inner
+            splay: splay_inner
             column_net: C5
 
       rows:
