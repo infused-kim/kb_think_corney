@@ -23,7 +23,7 @@ presets:
     cfg_splay_index: 0
     cfg_splay_inner: 0
     cfg_splay_thumb_home: -15
-    cfg_splay_thumb_inner: 90 + -15
+    cfg_splay_thumb_inner: -15
 
     # Key Size
     cfg_kx: cx
@@ -41,22 +41,20 @@ presets:
     cfg_thumb_inner_move_x: 2.7
     cfg_thumb_inner_move_y: 2.3
 
-    # Spacing required for outline to get a straight edge for the inner side
-    cfg_thumb_edge_offset: 1.5
-
     # Top & Bottom padding for outline
     cfg_pcb_outline_padding_top: 0.1
     cfg_pcb_outline_padding_left: 0
     cfg_pcb_outline_padding_right: 0
 
     # 1.5u rotated inner thumb settings
+    cfg_splay_thumb_inner_extra: 90
     cfg_keycaps_thumb_inner_x: 26.5
     cfg_keycaps_thumb_inner_y: 16.5
     cfg_thumb_inner_width: 1.5
     cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
-    cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
-    cfg_edge_thumb_cluster_bottom_shift_x: -1 * cfg_thumb_inner_width * 0.5 * cfg_kx
-    cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky - cfg_thumb_edge_offset
+    cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky
+    cfg_edge_thumb_cluster_bottom_shift_x: -0.5 * cfg_kx * cfg_thumb_inner_width - cfg_pcb_outline_padding_top
+    cfg_edge_thumb_cluster_bottom_shift_y: 0
 
   corne_choc_mx_spacing:
     $extends: presets.corne_choc
@@ -71,9 +69,6 @@ presets:
     # Distance adjustment of inner thumb key
     cfg_thumb_inner_move_x: 3.504
     cfg_thumb_inner_move_y: 2.07
-
-    # Spacing required for outline to get a straight edge for the inner side
-    cfg_thumb_edge_offset: -0.1
 
     # Top & Bottom padding for outline
     cfg_pcb_outline_padding_top: -0.35
@@ -126,18 +121,17 @@ presets:
     cfg_thumb_inner_move_x: 1.8
     cfg_thumb_inner_move_y: -2.65
 
-    # Spacing required for outline to get a straight edge for the inner side
-    cfg_thumb_edge_offset: 7.6
     cfg_pcb_outline_padding_right: 0
 
     # Make the inner thumb 1u instead of 1.5u and don't rotate it
+    cfg_splay_thumb_inner_extra: 0
     cfg_thumb_inner_width: 1
     cfg_keycaps_thumb_inner_x: 17.5
     cfg_keycaps_thumb_inner_y: 16.5
-    cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx + cfg_thumb_edge_offset
+    cfg_edge_thumb_cluster_top_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
     cfg_edge_thumb_cluster_top_shift_y: 0.5 * cfg_ky
-    cfg_edge_thumb_cluster_bottom_shift_x: cfg_thumb_inner_width * 0.5 * cfg_kx
-    cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky
+    cfg_edge_thumb_cluster_bottom_shift_x: 0
+    cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky * cfg_thumb_inner_width
 
 units:
   $extends: settings.preset
@@ -161,6 +155,7 @@ units:
   splay_inner: cfg_splay_inner
   splay_thumb_home: cfg_splay_thumb_home
   splay_thumb_inner: cfg_splay_thumb_inner
+  splay_thumb_inner_extra: cfg_splay_thumb_inner_extra
 
   # Thumb key width
   thumb_inner_width: cfg_thumb_inner_width
@@ -202,9 +197,6 @@ units:
   thumb_home_move_y: cfg_thumb_home_move_y
   thumb_inner_move_x: cfg_thumb_inner_move_x
   thumb_inner_move_y: cfg_thumb_inner_move_y
-
-  # Spacing required for outline to get a straight edge for the inner side
-  thumb_edge_offset: cfg_thumb_edge_offset
 
   # PCB Edge Padding
   pcb_outline_padding_top: cfg_pcb_outline_padding_top
@@ -360,7 +352,7 @@ points:
         inner:
             key:
               width: kx * thumb_inner_width
-              splay: splay_thumb_inner
+              splay: splay_thumb_inner + splay_thumb_inner_extra
               spread: 1kx + thumb_inner_move_x
               stagger: thumb_inner_move_y
               tags: key_thumb_inner
@@ -385,26 +377,58 @@ points:
     #
     # Helper Points
     #
+    edge_mcu_top_right:
+      anchor:
+        ref: mcu
+        shift: [+mcu_xo + mcu_spacing_right + pcb_outline_padding_right, +mcu_yo]
+
+    edge_thumb_cluster_top_splayed:
+      anchor:
+        - ref: thumbs_inner_cluster
+          shift: [cfg_edge_thumb_cluster_top_shift_x, cfg_edge_thumb_cluster_top_shift_y]
+        - ref: edge_mcu_top_right
+          affect: x
+      key:
+        name: edge_thumb_cluster_top_splayed
+        # If the inner thumb is 1.5u and rotated by 90 degrees,
+        # remove that rotation
+        splay: -cfg_splay_thumb_inner_extra
+
+
     edge_thumb_cluster_top:
       anchor:
-        ref: thumbs_inner_cluster
-        shift: [cfg_edge_thumb_cluster_top_shift_x, cfg_edge_thumb_cluster_top_shift_y]
+        - ref: edge_thumb_cluster_top_splayed
       key:
         name: edge_thumb_cluster_top
-        # thumbs_inner_cluster is splayed. So here we "unsplay" it
+         # thumbs_inner_cluster is splayed. So here we "unsplay" it
+         # to make the edge straight for placement of other components
+         # along the right side outline.
         splay: -splay_thumb_home - splay_thumb_inner
 
-    edge_thumb_cluster_bottom:
+    edge_thumb_cluster_bottom_tmp:
       anchor:
         ref: thumbs_inner_cluster
         shift: [cfg_edge_thumb_cluster_bottom_shift_x, cfg_edge_thumb_cluster_bottom_shift_y]
       key:
+        name: edge_thumb_cluster_bottom_tmp
+        # If the inner thumb is 1.5u and rotated by 90 degrees,
+        # remove that rotation
+        splay: -cfg_splay_thumb_inner_extra
+
+    edge_thumb_cluster_bottom:
+      anchor:
+        ref:
+          aggregate:
+            method: intersect
+            parts:
+              - edge_thumb_cluster_bottom_tmp
+              - edge_thumb_cluster_top_splayed
+            axis1: x
+            axis2: y
+      key:
         name: edge_thumb_cluster_bottom
 
-    #
     # Part Positioning
-    #
-
     display:
       anchor:
         ref: mcu
@@ -836,15 +860,14 @@ outlines:
         # Controller
         - ref: mcu
           shift: [-mcu_xo - mcu_spacing_left, +mcu_yo]
-        - ref: mcu
-          shift: [+mcu_xo + mcu_spacing_right + pcb_outline_padding_right, +mcu_yo]
+        - ref: edge_mcu_top_right
 
         # Right Side
         # Inner Thumb
         - ref: edge_thumb_cluster_top
           shift: [0, 0]
         - ref: edge_thumb_cluster_bottom
-          shift: [0 - pcb_outline_padding_bottom, 0]
+          shift: [0, 0]
 
         # Bottom
         # Inner thumb
