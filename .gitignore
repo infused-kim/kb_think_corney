@@ -40,3 +40,4 @@ fp-info-cache
 *.csv
 
 # Other
+/debug
