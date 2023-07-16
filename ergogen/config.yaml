@@ -181,13 +181,6 @@ units:
   keycaps_thumb_inner_xo: 0.5 * keycaps_thumb_inner_x
   keycaps_thumb_inner_yo: 0.5 * keycaps_thumb_inner_y
 
-  # This allows the layout to adopt based on whether
-  # the inner thumb key is a 1u or 1.5u key
-  inner_thumb_x: 1.5 * kx
-  inner_thumb_y: ky
-  inner_thumb_xo: 0.5 * inner_thumb_x
-  inner_thumb_yo: 0.5 * inner_thumb_y
-
   # Thumb Cluster offset from bottom index finger key
   thumb_cluster_offset_x: cfg_thumb_cluster_offset_x
   thumb_cluster_offset_y: cfg_thumb_cluster_offset_y
@@ -198,11 +191,17 @@ units:
   thumb_inner_move_x: cfg_thumb_inner_move_x
   thumb_inner_move_y: cfg_thumb_inner_move_y
 
-  # PCB Edge Padding
+  # PCB Outline Padding
   pcb_outline_padding_top: cfg_pcb_outline_padding_top
   pcb_outline_padding_bottom: cfg_pcb_outline_padding_top
   pcb_outline_padding_left: cfg_pcb_outline_padding_left
   pcb_outline_padding_right: cfg_pcb_outline_padding_right
+
+  # Inner thumb settings
+  edge_thumb_cluster_top_shift_x: cfg_edge_thumb_cluster_top_shift_x
+  edge_thumb_cluster_top_shift_y: cfg_edge_thumb_cluster_top_shift_y
+  edge_thumb_cluster_bottom_shift_x: cfg_edge_thumb_cluster_bottom_shift_x
+  edge_thumb_cluster_bottom_shift_y: cfg_edge_thumb_cluster_bottom_shift_y
 
   # Font units
   font_x: 1
@@ -385,14 +384,14 @@ points:
     edge_thumb_cluster_top_splayed:
       anchor:
         - ref: thumbs_inner_cluster
-          shift: [cfg_edge_thumb_cluster_top_shift_x, cfg_edge_thumb_cluster_top_shift_y]
+          shift: [edge_thumb_cluster_top_shift_x, edge_thumb_cluster_top_shift_y]
         - ref: edge_mcu_top_right
           affect: x
       key:
         name: edge_thumb_cluster_top_splayed
         # If the inner thumb is 1.5u and rotated by 90 degrees,
         # remove that rotation
-        splay: -cfg_splay_thumb_inner_extra
+        splay: -splay_thumb_inner_extra
 
 
     edge_thumb_cluster_top:
@@ -408,12 +407,12 @@ points:
     edge_thumb_cluster_bottom_tmp:
       anchor:
         ref: thumbs_inner_cluster
-        shift: [cfg_edge_thumb_cluster_bottom_shift_x, cfg_edge_thumb_cluster_bottom_shift_y]
+        shift: [edge_thumb_cluster_bottom_shift_x, edge_thumb_cluster_bottom_shift_y]
       key:
         name: edge_thumb_cluster_bottom_tmp
         # If the inner thumb is 1.5u and rotated by 90 degrees,
         # remove that rotation
-        splay: -cfg_splay_thumb_inner_extra
+        splay: -splay_thumb_inner_extra
 
     edge_thumb_cluster_bottom:
       anchor:
