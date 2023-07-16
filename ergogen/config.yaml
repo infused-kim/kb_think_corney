@@ -1,5 +1,9 @@
-vars:
-  version: &kb_version 'ThinkCorney v1-b1'
+meta:
+  engine: 4.0.4
+  author: "@infused-kim"
+  name: 'ThinkCorney'
+  version: v1-b1
+  full_name: &kb_full_name 'ThinkCorney v1-b1'
 
 settings:
   preset:
@@ -791,7 +795,7 @@ pcbs:
         what: infused-kim/text
         params:
           reverse: true
-          text: *kb_version
+          text: *kb_full_name
         where:
           ref: text_version
 
