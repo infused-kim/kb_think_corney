@@ -4,6 +4,8 @@ vars:
 settings:
   preset:
     $extends: presets.kim
+  point_debugger:
+    enabled: true
 
 presets:
   corne_choc:
@@ -802,6 +804,12 @@ pcbs:
           ref: text_version
           shift: [0, +1.5]
           rotate: 0
+
+      point_debugger:
+        what: infused-kim/point_debugger
+        where: true
+        params:
+          $extends: settings.point_debugger
 
 outlines:
 
