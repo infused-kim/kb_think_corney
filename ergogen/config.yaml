@@ -34,6 +34,8 @@ presets:
     # Key Size
     cfg_kx: cx
     cfg_ky: cy
+    cfg_kxo: 0.5 * cx
+    cfg_kyo: 0.5 * cy
     cfg_keycaps_x: 17.5
     cfg_keycaps_y: 16.5
 
@@ -61,6 +63,10 @@ presets:
     cfg_edge_thumb_cluster_top_shift_y: -0.5 * cfg_ky
     cfg_edge_thumb_cluster_bottom_shift_x: -0.5 * cfg_kx * cfg_thumb_inner_width - cfg_pcb_outline_padding_top
     cfg_edge_thumb_cluster_bottom_shift_y: 0
+
+    # Mounting Holes
+    cfg_mounting_hole_thumb_inner_shift_y: 1.5
+    cfg_mounting_hole_pinky_shift_y: 0
 
   corne_choc_mx_spacing:
     $extends: presets.corne_choc
@@ -138,6 +144,10 @@ presets:
     cfg_edge_thumb_cluster_top_shift_y: 0.5 * cfg_ky
     cfg_edge_thumb_cluster_bottom_shift_x: 0
     cfg_edge_thumb_cluster_bottom_shift_y: -0.5 * cfg_ky * cfg_thumb_inner_width
+
+    # Mounting Holes
+    cfg_mounting_hole_thumb_inner_shift_y: +3
+    cfg_mounting_hole_pinky_shift_y: +cfg_ky - 5
 
 units:
   $extends: settings.preset
@@ -272,6 +282,17 @@ units:
   bat_wire_cutout_width: 2.5
   bat_wire_cutout_height: 4
 
+  # Mounting Holes
+  mounting_hole_size: 5
+  mounting_hole_drill: 4.1
+  mounting_hole_x: mounting_hole_size
+  mounting_hole_y: mounting_hole_size
+  mounting_hole_xo: 0.5 * mounting_hole_x
+  mounting_hole_yo: 0.5 * mounting_hole_y
+  mounting_hole_thumb_inner_shift_y: cfg_mounting_hole_thumb_inner_shift_y
+  mounting_hole_inner_top_shift_x: 1.7
+  mounting_hole_pinky_shift_y: cfg_mounting_hole_pinky_shift_y
+
 points:
   zones:
 
@@ -404,7 +425,6 @@ points:
         # remove that rotation
         splay: -splay_thumb_inner_extra
 
-
     edge_thumb_cluster_top:
       anchor:
         - ref: edge_thumb_cluster_top_splayed
@@ -439,6 +459,23 @@ points:
                 rotate: -90
       key:
         name: edge_thumb_cluster_bottom
+
+    edge_ring_x_pinky_y:
+      anchor:
+        - ref: matrix_pinky_bottom
+          affect: [x, y]
+          shift: [kxo + 1kx, -kyo]
+      key:
+        name: edge_ring_x_pinky_y
+
+    edge_thumb_outer_x_outline_y:
+      anchor:
+        - ref: thumbs_outer_cluster
+          shift: [-kxo, 0]
+        - ref: edge_ring_x_pinky_y
+          affect: y
+      key:
+        name: edge_thumb_outer_x_outline_y
 
     # Part Positioning
     display:
@@ -512,6 +549,58 @@ points:
       anchor:
         ref: matrix_pinky_bottom
         shift: [+kxo * 2, -kyo + 1.5]
+
+    # Mounting Holes
+    mounting_hole_outer_top:
+      anchor:
+        ref: matrix_outer_home
+        shift: [+kxo, +kyo]
+      key.tags: mounting_hole
+
+    mounting_hole_outer_bottom:
+      anchor:
+        ref: matrix_outer_home
+        shift: [+kxo, -kyo]
+      key.tags: mounting_hole
+
+    mounting_hole_pinky_top:
+      anchor:
+        ref: matrix_pinky_home
+        shift: [+kxo, +kyo + mounting_hole_pinky_shift_y]
+      key.tags: mounting_hole
+
+    mounting_hole_pinky_bottom:
+      anchor:
+        ref: matrix_pinky_home
+        shift: [+kxo, -kyo + mounting_hole_pinky_shift_y]
+      key.tags: mounting_hole
+
+    mounting_hole_inner_top:
+      anchor:
+        ref: matrix_inner_home
+        shift: [+kxo - mounting_hole_inner_top_shift_x, +kyo]
+      key.tags: mounting_hole
+
+    mounting_hole_thumb_outer:
+      anchor:
+        aggregate:
+          parts:
+            - edge_ring_x_pinky_y
+            - edge_thumb_outer_x_outline_y
+        shift: [0, 0]
+      key.tags: mounting_hole
+
+    mounting_hole_thumb_inner:
+      anchor:
+        - aggregate.parts:
+            - thumbs_home_cluster
+            - thumbs_inner_cluster
+        - ref: thumbs_inner_cluster
+          affect: r
+        - rotate: -cfg_splay_thumb_inner_extra
+        - shift: [0, mounting_hole_thumb_inner_shift_y]
+      key.tags: mounting_hole
+
 
 pcbs:
   think_corney:
@@ -793,6 +882,15 @@ pcbs:
           ref: sw_reset
           rotate: 0
 
+      # Mounting Holes
+      mounting_holes:
+        what: infused-kim/mounting_hole
+        params:
+          size: mounting_hole_size
+          drill: mounting_hole_drill
+        where: [mounting_hole]
+
+      # Other
       text_version:
         what: infused-kim/text
         params:
@@ -907,8 +1005,8 @@ outlines:
           shift: [-kxo, -kyo - pcb_outline_padding_bottom]
 
         # Pinky y and ring x
-        - ref: matrix_pinky_bottom
-          shift: [kxo + 1kx, -kyo - pcb_outline_padding_bottom]
+        - ref: edge_ring_x_pinky_y
+          shift: [0, -pcb_outline_padding_bottom]
 
         # Outer
         - ref: matrix_outer_bottom
