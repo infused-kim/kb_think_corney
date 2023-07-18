@@ -277,6 +277,11 @@ units:
   tpc_xo: 0.5 * tpc_x
   tpc_yo: 0.5 * tpc_y
 
+  # Trackpoint Reset Circuit
+  tpr_x: 7.5
+  tpr_y: 3.3
+  tpr_xo: 0.5 * tpr_x
+  tpr_yo: 0.5 * tpr_y
 
   # Battery Connector Hole
   bat_conn_hole_outline: 0.25
@@ -445,6 +450,14 @@ points:
         ref: mcu
         shift: [+mcu_xo + mcu_spacing_right + pcb_outline_padding_right, +mcu_yo]
 
+    edge_above_display_cover:
+      anchor:
+        - ref: display_cover_hole_right
+          shift: [0, display_cover_hole_xo]
+        - ref: edge_mcu_top_right
+          affect: x
+      key.name: edge_above_display_cover
+
     edge_thumb_cluster_top_splayed:
       anchor:
         - ref: thumbs_inner_cluster
@@ -530,8 +543,8 @@ points:
 
     battery_conn:
       anchor:
-        ref: disp
-        shift: [+batc_xo, -disp_yo - disp_jumper_y - batc_yo - 3.5 ]
+        ref: display_cover_hole_left
+        shift: [-1, -bat_conn_hole_yo - batc_yo - 2]
       key:
         name: batc
         width: batc_x
@@ -540,7 +553,7 @@ points:
     battery_pad:
       anchor:
         ref: batc
-        shift: [0, -batc_yo - batp_yo - 3]
+        shift: [0, 0]
       key:
         name: batp
         width: batp_x
@@ -548,8 +561,8 @@ points:
 
     power_switch:
       anchor:
-        ref: edge_thumb_cluster_top
-        shift: [-sw_power_xo - 0.5, +sw_power_yo + 1]
+        ref: edge_above_display_cover
+        shift: [-sw_power_xo - 0.5, +sw_power_yo + 0.5]
       key:
         name: sw_power
         width: sw_power_x
@@ -558,7 +571,7 @@ points:
     reset_switch:
       anchor:
         ref: sw_power
-        shift: [+sw_power_xo - sw_reset_xo - 0.1, +sw_power_yo + 2 + sw_reset_yo]
+        shift: [+sw_power_xo - sw_reset_xo - 0.1, +sw_power_yo + 1 + sw_reset_yo]
       key:
         name: sw_reset
         width: sw_reset_x
@@ -579,12 +592,22 @@ points:
 
     trackpoint_connector:
       anchor:
-        ref: matrix_inner_bottom
-        shift: [+kxo + tpc_xo + 0.75, -kyo - tpc_yo + 0.5]
+        ref: batc
+        shift: [+batc_xo + tpc_xo + 1.5, 0]
       key:
         name: tp_conn
         width: tpm_x
         height: tpm_y
+
+    trackpoint_reset_circuit:
+      anchor:
+        - ref: tp_conn
+          affect: x
+        - ref: tp_conn
+          affect: y
+        - shift: [0, tpc_yo + tpr_yo + 2.5]
+      key:
+        name: tp_reset
 
     text_version:
       anchor:
@@ -641,7 +664,6 @@ points:
         - rotate: -cfg_splay_thumb_inner_extra
         - shift: [0, mounting_hole_thumb_inner_shift_y]
       key.tags: mounting_hole
-
 
 pcbs:
   think_corney:
@@ -826,16 +848,6 @@ pcbs:
           ref: batp
           rotate: -180
 
-      pads_bat_icon:
-        what: infused-kim/icon_bat
-        params:
-          reverse: true
-          spacing: 1.5
-        where:
-          ref: batp
-          shift: [0, batp_yo + font_yo + 0.3]
-          rotate: 180
-
       conn_trackpoint:
         what: infused-kim/conn_molex_pico_ezmate_1x05
         params:
@@ -907,8 +919,8 @@ pcbs:
           label_4: TDR
 
         where:
-          ref: tp_conn
-          shift: [0, 6]
+          ref: tp_reset
+          shift: [0, 0]
           rotate: 180
 
       power_switch:
