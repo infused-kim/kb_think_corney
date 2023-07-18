@@ -431,10 +431,12 @@ points:
           aggregate:
             method: intersect
             parts:
-              - edge_thumb_cluster_bottom_tmp
-              - edge_thumb_cluster_top_splayed
-            axis1: x
-            axis2: y
+              - ref: edge_thumb_cluster_top_splayed
+                # Turn point around
+                rotate: 180
+              - ref: edge_thumb_cluster_bottom_tmp
+                # Turn point to the right
+                rotate: -90
       key:
         name: edge_thumb_cluster_bottom
 
