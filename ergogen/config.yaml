@@ -853,11 +853,11 @@ pcbs:
         params:
           reverse: true
           side: F
-          pad_1: VCC
+          pad_1: TPC
           pad_2: GND
-          pad_3: TPC
-          pad_4: TPR
-          pad_5: TPD
+          pad_3: TPR
+          pad_4: TPD
+          pad_5: VCC
         where:
           ref: tp_conn
           rotate: 180
@@ -871,17 +871,17 @@ pcbs:
           space: 1
           pads: 5
 
-          net_1: VCC
+          net_1: TPC
           net_2: GND
-          net_3: TPC
-          net_4: TPR
-          net_5: TPD
+          net_3: TPR
+          net_4: TPD
+          net_5: VCC
 
-          label_1: VCC
+          label_1: SCL
           label_2: GND
-          label_3: SCL
-          label_4: RST
-          label_5: SDA
+          label_3: RST
+          label_4: SDA
+          label_5: VCC
           label_at_bottom: true
         where:
           ref: tp_conn
