@@ -277,10 +277,6 @@ units:
   tpc_xo: 0.5 * tpc_x
   tpc_yo: 0.5 * tpc_y
 
-  # Battery Wire Cutout
-  bat_wire_cutout_offset: 1
-  bat_wire_cutout_width: 2.5
-  bat_wire_cutout_height: 4
 
   # Battery Connector Hole
   bat_conn_hole_outline: 0.25
@@ -490,7 +486,7 @@ points:
     display:
       anchor:
         ref: mcu
-        shift: [0, + mcu_yo - disp_yo - bat_wire_cutout_offset]
+        shift: [0, + mcu_yo - disp_yo - 0.5]
       key:
         name: disp
         width: disp_x
@@ -1003,16 +999,6 @@ outlines:
         - ref: mcu
           shift: [-mcu_xo - mcu_spacing_left, +mcu_yo]
         - ref: edge_mcu_top_right
-
-        # Battery Cable Cutout
-        - ref: edge_mcu_top_right
-          shift: [0, -mcu_y - bat_wire_cutout_offset]
-        - ref: edge_mcu_top_right
-          shift: [-bat_wire_cutout_width, -mcu_y - bat_wire_cutout_offset]
-        - ref: edge_mcu_top_right
-          shift: [-bat_wire_cutout_width, -mcu_y - bat_wire_cutout_offset - bat_wire_cutout_height]
-        - ref: edge_mcu_top_right
-          shift: [0, -mcu_y - bat_wire_cutout_offset - bat_wire_cutout_height]
 
         # Right Side
         # Inner Thumb
