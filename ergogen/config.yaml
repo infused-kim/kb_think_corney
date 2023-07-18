@@ -298,6 +298,18 @@ units:
   mounting_hole_inner_top_shift_x: 1.7
   mounting_hole_pinky_shift_y: cfg_mounting_hole_pinky_shift_y
 
+  # Display Cover Holes
+  display_cover_hole_outline: 0.9
+  display_cover_hole_drill: 2.2
+  display_cover_hole_x: display_cover_hole_drill + display_cover_hole_outline * 2
+  display_cover_hole_y: display_cover_hole_x
+  display_cover_hole_xo: 0.5 * display_cover_hole_x
+  display_cover_hole_yo: 0.5 * display_cover_hole_y
+  display_cover_hole_mcu_distance_y: -13.5
+  display_cover_hole_distance_x: 14.5
+  display_cover_hole_distance_xo: 0.5 * display_cover_hole_distance_x
+  display_cover_hole_distance_y: -8.5
+
 points:
   zones:
 
@@ -409,6 +421,21 @@ points:
         name: mcu
         width: mcu_x
         height: mcu_y
+
+    # Display Cover Holes
+    display_cover_hole_left:
+      anchor:
+        ref: mcu
+        shift: [-display_cover_hole_distance_xo, -mcu_yo + display_cover_hole_mcu_distance_y]
+      key:
+        name: display_cover_hole_left
+        tags: display_cover_hole
+
+    display_cover_hole_right:
+      anchor:
+        ref: display_cover_hole_left
+        shift: [+display_cover_hole_distance_x, display_cover_hole_distance_y]
+      key.tags: display_cover_hole
 
     #
     # Helper Points
@@ -911,6 +938,13 @@ pcbs:
           outline: mounting_hole_outline
           drill: mounting_hole_drill
         where: [mounting_hole]
+
+      display_cover_holes:
+        what: infused-kim/mounting_hole
+        params:
+          outline: display_cover_hole_outline
+          drill: display_cover_hole_drill
+        where: [display_cover_hole]
 
       # Other
       text_version:
