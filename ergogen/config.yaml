@@ -39,6 +39,10 @@ presets:
     cfg_keycaps_x: 17.5
     cfg_keycaps_y: 16.5
 
+    # Key Flipping
+    cfg_flipped_key_rotation: 0
+    cfg_flipped_key_diode_y: -3.8
+
     # Thumb Cluster offset from bottom index finger key
     cfg_thumb_cluster_offset_x: -8.5
     cfg_thumb_cluster_offset_y: -19.625
@@ -131,6 +135,10 @@ presets:
     cfg_splay_thumb_home: 0
     cfg_splay_thumb_inner: -15
 
+    # Key Flipping
+    cfg_flipped_key_rotation: 180
+    cfg_flipped_key_diode_y: 3.8
+
     # Thumb Cluster offset from bottom index finger key
     cfg_thumb_cluster_offset_x: -8.5
     cfg_thumb_cluster_offset_y: -21
@@ -180,6 +188,10 @@ units:
   splay_thumb_home: cfg_splay_thumb_home
   splay_thumb_inner: cfg_splay_thumb_inner
   splay_thumb_inner_extra: cfg_splay_thumb_inner_extra
+
+  # Key Flipping
+  flipped_key_rotation: cfg_flipped_key_rotation
+  flipped_key_diode_y: cfg_flipped_key_diode_y
 
   # Thumb key width
   thumb_inner_width: cfg_thumb_inner_width
@@ -784,7 +796,7 @@ pcbs:
           to: "{{colrow}}"
         adjust:
           shift: [0,0]
-          rotate: 0
+          rotate: flipped_key_rotation
 
       diode_flipped:
         what: infused-kim/diode
@@ -794,7 +806,7 @@ pcbs:
           to: "{{row_net}}"
           include_tht: false
         adjust:
-          shift: [0, -3.8]
+          shift: [0, flipped_key_diode_y]
 
 
       # Controller Area
