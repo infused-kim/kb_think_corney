@@ -815,7 +815,9 @@ pcbs:
         params:
           reverse: true
           show_outline_t430: false
-          show_outline_x240: true
+          show_outline_x240: false
+          show_outline_t460s: true
+          show_board: true
         where:
           ref: tp_mount
 
