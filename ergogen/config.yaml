@@ -68,6 +68,10 @@ presets:
     cfg_mounting_hole_thumb_inner_shift_y: 1.5
     cfg_mounting_hole_pinky_shift_y: 0
 
+    # Breakoff Column Cuts
+    cfg_breakoff_coulmn_inner_y: 7.5
+    cfg_breakoff_column_outer_y: 7.5
+
   corne_choc_mx_spacing:
     $extends: presets.corne_choc
 
@@ -85,6 +89,10 @@ presets:
     # Top & Bottom padding for outline
     cfg_pcb_outline_padding_top: -0.35
     cfg_pcb_outline_padding_left: -0.5
+
+    # Breakoff Column Cuts
+    cfg_breakoff_column_outer_y: 8.5
+    cfg_breakoff_coulmn_inner_y: 8.5
 
   chocofi:
     $extends: presets.corne_choc
@@ -314,6 +322,10 @@ units:
   display_cover_hole_distance_x: 14.5
   display_cover_hole_distance_xo: 0.5 * display_cover_hole_distance_x
   display_cover_hole_distance_y: -8.5
+
+  # Breakoff Column Cuts
+  breakoff_column_outer_y: cfg_breakoff_column_outer_y
+  breakoff_coulmn_inner_y: cfg_breakoff_coulmn_inner_y
 
 points:
   zones:
@@ -669,7 +681,8 @@ pcbs:
   think_corney:
     outlines:
       main:
-        outline: board
+        outline: pcb
+
     footprints:
 
       # Controller
@@ -998,7 +1011,7 @@ outlines:
       size: [kx-0.5,ky-0.5]
 
   # Actual outline of the board
-  board:
+  _board:
     - what: polygon
       operation: stack
       fillet: 0.5
@@ -1070,8 +1083,73 @@ outlines:
         - ref: matrix_outer_bottom
           shift: [-kxo - pcb_outline_padding_left, -kyo - pcb_outline_padding_bottom]
 
+  # Inside edge cuts for breakoff column holes
+  _breakoff_col_holes:
+
+    # Breakoff Column Cut Top
+    - what: polygon
+      fillet: 0.5
+      points:
+        - ref: matrix_outer_top
+          shift: [+kxo - 0.5, +kyo + 2]
+        - ref: matrix_outer_top
+          shift: [+kxo - 0.5, +kyo - breakoff_column_outer_y]
+        - ref: matrix_outer_top
+          shift: [+kxo + 0.5, +kyo - breakoff_column_outer_y]
+        - ref: matrix_outer_top
+          shift: [+kxo + 0.5, +kyo + 2]
+
+    # Breakoff Column Cut Middle 1
+    - what: polygon
+      operation: stack
+      fillet: 0.5
+      points:
+        - ref: matrix_outer_top
+          shift: [+kxo - 0.5, -kyo + breakoff_coulmn_inner_y]
+        - ref: matrix_outer_top
+          shift: [+kxo - 0.5, -kyo - breakoff_coulmn_inner_y]
+        - ref: matrix_outer_top
+          shift: [+kxo + 0.5, -kyo - breakoff_coulmn_inner_y]
+        - ref: matrix_outer_top
+          shift: [+kxo + 0.5, -kyo + breakoff_coulmn_inner_y]
+
+    # Breakoff Column Cut Middle 2
+    - what: polygon
+      operation: stack
+      fillet: 0.5
+      points:
+        - ref: matrix_outer_home
+          shift: [+kxo - 0.5, -kyo + breakoff_coulmn_inner_y]
+        - ref: matrix_outer_home
+          shift: [+kxo - 0.5, -kyo - breakoff_coulmn_inner_y]
+        - ref: matrix_outer_home
+          shift: [+kxo + 0.5, -kyo - breakoff_coulmn_inner_y]
+        - ref: matrix_outer_home
+          shift: [+kxo + 0.5, -kyo + breakoff_coulmn_inner_y]
+
+    # Breakoff Column Cut Bottom
+    - what: polygon
+      operation: stack
+      fillet: 0.5
+      points:
+        - ref: matrix_outer_bottom
+          shift: [+kxo + 0.5, -kyo - 2]
+        - ref: matrix_outer_bottom
+          shift: [+kxo + 0.5, -kyo + breakoff_column_outer_y]
+        - ref: matrix_outer_bottom
+          shift: [+kxo - 0.5, -kyo + breakoff_column_outer_y]
+        - ref: matrix_outer_bottom
+          shift: [+kxo - 0.5, -kyo - 2]
+
+  pcb:
+    - what: outline
+      name: _board
+    - what: outline
+      name: _breakoff_col_holes
+      operation: subtract
+
   # Combination preview showing outline and keys.
   combo:
-    - name: board
+    - name: _board
     - operation: subtract
       name: keys
