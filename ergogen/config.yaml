@@ -754,6 +754,13 @@ pcbs:
           shift: [0,0]
           rotate: -180
 
+      choc_hotswap_traces:
+        what: think_corney/key_traces
+        where: [key]
+        adjust:
+          shift: [0,0]
+          rotate: -180
+
       # 1.5u thumb key
       choc_hotswap_thumb_inner:
         what: infused-kim/choc
@@ -767,6 +774,13 @@ pcbs:
           keycaps_y: keycaps_thumb_inner_y
           from: "{{column_net}}"
           to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: -180
+
+      choc_hotswap_thumb_inner_traces:
+        what: think_corney/key_traces
+        where: [key_thumb_inner]
         adjust:
           shift: [0,0]
           rotate: -180
@@ -794,6 +808,13 @@ pcbs:
           keycaps_y: keycaps_y
           from: "{{column_net}}"
           to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: flipped_key_rotation
+
+      choc_tp_flipped_hotswap_traces:
+        what: think_corney/key_traces
+        where: [key_tp_flipped]
         adjust:
           shift: [0,0]
           rotate: flipped_key_rotation
