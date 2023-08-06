@@ -362,11 +362,13 @@ points:
             stagger: stagger_outer
             splay: splay_outer
             column_net: C0
+            tags: key_outer_pads
         pinky:
           key:
             stagger: stagger_pinky
             splay: splay_pinky
             column_net: C1
+            tags: key_pinky_pads
         ring:
           key:
             stagger: stagger_ring
@@ -743,9 +745,8 @@ pcbs:
         where: [key]
         params:
           reverse: true
-          hotswap: true
-          hotswap_tht: true
-          keycaps: true
+          solder: true
+          show_keycaps: true
           keycaps_x: keycaps_x
           keycaps_y: keycaps_y
           from: "{{column_net}}"
@@ -756,7 +757,7 @@ pcbs:
 
       choc_hotswap_traces:
         what: think_corney/key_traces
-        where: [key]
+        where: [key, key_outer_pads, key_pinky_pads]
         adjust:
           shift: [0,0]
           rotate: -180
@@ -767,9 +768,8 @@ pcbs:
         where: [key_thumb_inner]
         params:
           reverse: true
-          hotswap: true
-          hotswap_tht: true
-          keycaps: true
+          solder: true
+          show_keycaps: true
           keycaps_x: keycaps_thumb_inner_x
           keycaps_y: keycaps_thumb_inner_y
           from: "{{column_net}}"
@@ -787,7 +787,7 @@ pcbs:
 
       diode:
         what: infused-kim/diode
-        where: [key, key_thumb_inner]
+        where: [key, /^key_.*/]
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
@@ -795,15 +795,48 @@ pcbs:
         adjust:
           shift: [0, 3.8]
 
+      # Prevent cut off of pad on outside columns
+      choc_outer_pads:
+        what: infused-kim/choc
+        where: [key_outer_pads]
+        params:
+          reverse: true
+          solder: true
+          show_keycaps: true
+          keycaps_x: keycaps_x
+          keycaps_y: keycaps_y
+          outer_pad_width_front: 1.0
+          outer_pad_width_back: 1.5
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: flipped_key_rotation
+
+      choc_pinky_pads:
+        what: infused-kim/choc
+        where: [key_pinky_pads]
+        params:
+          reverse: true
+          solder: true
+          show_keycaps: true
+          keycaps_x: keycaps_x
+          keycaps_y: keycaps_y
+          outer_pad_width_back: 1.3
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+        adjust:
+          shift: [0,0]
+          rotate: flipped_key_rotation
+
       # Prevent cut off of pad by trackpoint mounting hole
       choc_tp_flipped:
         what: infused-kim/choc
         where: [key_tp_flipped]
         params:
           reverse: true
-          hotswap: true
-          hotswap_tht: true
-          keycaps: true
+          solder: true
+          show_keycaps: true
           keycaps_x: keycaps_x
           keycaps_y: keycaps_y
           from: "{{column_net}}"
