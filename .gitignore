@@ -42,3 +42,4 @@ pcb/*.svg
 
 # Other
 /debug
+/ergogen/footprints/think_corney/kicad_footprints/traces/*.kicad_pro
