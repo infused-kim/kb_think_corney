@@ -50,8 +50,7 @@ module.exports = {
             (via (at ${ adjust_point(1.65, 3.8) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 2))
             (segment (start ${ adjust_point(-5.74, -1.55) }) (end ${ adjust_point(-2.94, -1.55) }) (width 0.25) (layer "F.Cu") (net 3))
             (segment (start ${ adjust_point(-1.65, 3.8) }) (end ${ adjust_point(-1.65, 4.25) }) (width 0.25) (layer "F.Cu") (net 3))
-            (segment (start ${ adjust_point(-8.275, -3.75) }) (end ${ adjust_point(-7.94, -3.75) }) (width 0.25) (layer "F.Cu") (net 3))
-            (segment (start ${ adjust_point(-7.94, -3.75) }) (end ${ adjust_point(-5.74, -1.55) }) (width 0.25) (layer "F.Cu") (net 3))
+            (segment (start ${ adjust_point(-7.25, -2.75) }) (end ${ adjust_point(-5.74, -1.55) }) (width 0.25) (layer "F.Cu") (net 3))
             (segment (start ${ adjust_point(-2.94, -1.55) }) (end ${ adjust_point(-2.94, 2.51) }) (width 0.25) (layer "F.Cu") (net 3))
             (segment (start ${ adjust_point(-2.94, 2.51) }) (end ${ adjust_point(-1.65, 3.8) }) (width 0.25) (layer "F.Cu") (net 3))
             (segment (start ${ adjust_point(-1.65, 4.25) }) (end ${ adjust_point(0, 5.9) }) (width 0.25) (layer "F.Cu") (net 3))
@@ -62,7 +61,7 @@ module.exports = {
             (segment (start ${ adjust_point(-2.94, -1.55) }) (end ${ adjust_point(-2.736, -1.55) }) (width 0.25) (layer "B.Cu") (net 3))
             (segment (start ${ adjust_point(6.049, -1.524) }) (end ${ adjust_point(2.762, -1.524) }) (width 0.25) (layer "B.Cu") (net 3))
             (segment (start ${ adjust_point(2.762, -1.524) }) (end ${ adjust_point(2, -2.286) }) (width 0.25) (layer "B.Cu") (net 3))
-            (segment (start ${ adjust_point(8.275, -3.75) }) (end ${ adjust_point(6.049, -1.524) }) (width 0.25) (layer "B.Cu") (net 3))
+            (segment (start ${ adjust_point(7.25, -2.75) }) (end ${ adjust_point(6.049, -1.524) }) (width 0.25) (layer "B.Cu") (net 3))
 
         `
 
