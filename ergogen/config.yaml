@@ -39,9 +39,26 @@ presets:
     cfg_keycaps_x: 17.5
     cfg_keycaps_y: 16.5
 
-    # Key Flipping
-    cfg_flipped_key_rotation: 0
-    cfg_flipped_key_diode_y: -3.8
+    # Diode position (don't change used for calculations)
+    cfg_diode_y: 3.8
+
+    # Adjustments for keys around trackpoint mount
+    cfg_tp_key_index_top_hotswap: 1
+    cfg_tp_key_index_top_rotation: 0
+    cfg_tp_key_index_top_diode_y: -1 * cfg_diode_y
+    cfg_tp_key_index_top_trace_variation: 0
+
+    cfg_tp_key_index_home_hotswap: 0
+    cfg_tp_key_index_home_rotation: 0
+    cfg_tp_key_index_home_trace_variation: 1
+
+    cfg_tp_key_inner_top_hotswap: 0
+    cfg_tp_key_inner_top_rotation: 0
+    cfg_tp_key_inner_top_trace_variation: 1
+
+    cfg_tp_key_inner_home_hotswap: 1
+    cfg_tp_key_inner_home_rotation: 0
+    cfg_tp_key_inner_home_trace_variation: 0
 
     # Thumb Cluster offset from bottom index finger key
     cfg_thumb_cluster_offset_x: -8.5
@@ -143,9 +160,26 @@ presets:
     cfg_splay_thumb_home: 0
     cfg_splay_thumb_inner: -15
 
-    # Key Flipping
-    cfg_flipped_key_rotation: 180
-    cfg_flipped_key_diode_y: 3.8
+    # Adjustments for keys around trackpoint mount
+    cfg_tp_key_index_top_hotswap: 1
+    cfg_tp_key_index_top_rotation: 180
+    cfg_tp_key_index_top_diode_y: cfg_diode_y
+    cfg_tp_key_index_top_trace_variation: 0
+
+    cfg_tp_key_index_home_hotswap: 0
+    cfg_tp_key_index_home_rotation: 0
+    cfg_tp_key_index_home_diode_y: cfg_diode_y
+    cfg_tp_key_index_home_trace_variation: 1
+
+    cfg_tp_key_inner_top_hotswap: 0
+    cfg_tp_key_inner_top_rotation: 0
+    cfg_tp_key_inner_top_diode_y: cfg_diode_y
+    cfg_tp_key_inner_top_trace_variation: 1
+
+    cfg_tp_key_inner_home_hotswap: 1
+    cfg_tp_key_inner_home_rotation: 180
+    cfg_tp_key_inner_home_diode_y: cfg_diode_y
+    cfg_tp_key_inner_home_trace_variation: 0
 
     # Thumb Cluster offset from bottom index finger key
     cfg_thumb_cluster_offset_x: -8.5
@@ -200,9 +234,27 @@ units:
   splay_thumb_inner: cfg_splay_thumb_inner
   splay_thumb_inner_extra: cfg_splay_thumb_inner_extra
 
-  # Key Flipping
-  flipped_key_rotation: cfg_flipped_key_rotation
-  flipped_key_diode_y: cfg_flipped_key_diode_y
+  # Adjustments for keys around trackpoint mount
+  tp_key_index_top_hotswap: cfg_tp_key_index_top_hotswap
+  tp_key_index_top_rotation: cfg_tp_key_index_top_rotation
+  tp_key_index_top_diode_y: cfg_tp_key_index_top_diode_y
+  tp_key_index_top_trace_variation: cfg_tp_key_index_top_trace_variation
+
+  tp_key_index_home_hotswap: cfg_tp_key_index_home_hotswap
+  tp_key_index_home_rotation: cfg_tp_key_index_home_rotation
+  tp_key_index_home_diode_y: cfg_tp_key_index_home_diode_y
+  tp_key_index_home_trace_variation: cfg_tp_key_index_home_trace_variation
+
+  tp_key_inner_top_hotswap: cfg_tp_key_inner_top_hotswap
+  tp_key_inner_top_rotation: cfg_tp_key_inner_top_rotation
+  tp_key_inner_top_diode_y: cfg_tp_key_inner_top_diode_y
+
+  tp_key_inner_top_trace_variation: cfg_tp_key_inner_top_trace_variation
+
+  tp_key_inner_home_hotswap: cfg_tp_key_inner_home_hotswap
+  tp_key_inner_home_rotation: cfg_tp_key_inner_home_rotation
+  tp_key_inner_home_diode_y: cfg_tp_key_inner_home_diode_y
+  tp_key_inner_home_trace_variation: cfg_tp_key_inner_home_trace_variation
 
   # Thumb key width
   thumb_inner_width: cfg_thumb_inner_width
@@ -413,14 +465,15 @@ points:
         top:
           row_net: R1
 
-      # Change switch footprints for the keys around the trackpoint mount.
-      # These keys need to be soldered and can't use hotswap sockets.
+      # The four keys around the trackpoint mount have their own
+      # footprints in the pcb section where they can individually
+      # be rotated and parameterized.
       #
-      # Flip so that the socket is further away from the trackpoint mounting
-      columns.index.rows.top.tags: key_tp_flipped
-      # Flip so that the hotswap pad is not cut off by the trackpoint mounting
-      # hole
-      columns.index.rows.home.tags: key_tp_flipped
+      # So we remove the key tag so that the default footprint is not applied
+      columns.index.rows.top.tags: tp_key
+      columns.index.rows.home.tags: tp_key
+      columns.inner.rows.top.tags: tp_key
+      columns.inner.rows.home.tags: tp_key
 
     #
     # Thumb Cluster
@@ -816,43 +869,77 @@ pcbs:
         params:
           <<: *ref_pcb_choc_key_params
           outer_pad_width_back: 1.3
-        adjust:
-          shift: [0,0]
-          rotate: flipped_key_rotation
 
-      # Prevent cut off of pad by trackpoint mounting hole
-      choc_tp_flipped:
-        what: infused-kim/choc
-        where: [key_tp_flipped]
+      # Keys around trackpoint mount
+      choc_tp_index_top:
+        <<: *ref_pcb_choc_key
+        where: matrix_index_top
         params:
-          reverse: true
-          solder: true
-          show_keycaps: true
-          keycaps_x: keycaps_x
-          keycaps_y: keycaps_y
-          from: "{{column_net}}"
-          to: "{{colrow}}"
+          <<: *ref_pcb_choc_key_params
+          hotswap: tp_key_index_top_hotswap
         adjust:
-          shift: [0,0]
-          rotate: flipped_key_rotation
+          rotate: tp_key_index_top_rotation
 
-      choc_tp_flipped_hotswap_traces:
-        what: think_corney/key_traces
-        where: [key_tp_flipped]
+      choc_tp_index_home:
+        <<: *ref_pcb_choc_key
+        where: matrix_index_home
+        params:
+          <<: *ref_pcb_choc_key_params
+          hotswap: tp_key_index_home_hotswap
         adjust:
-          shift: [0,0]
-          rotate: flipped_key_rotation
+          rotate: tp_key_index_home_rotation
 
-      diode_flipped:
+      choc_tp_inner_top:
+        <<: *ref_pcb_choc_key
+        where: matrix_inner_top
+        params:
+          <<: *ref_pcb_choc_key_params
+          hotswap: tp_key_inner_top_hotswap
+        adjust:
+          rotate: tp_key_inner_top_rotation
+
+      choc_tp_inner_home:
+        <<: *ref_pcb_choc_key
+        where: matrix_inner_home
+        params:
+          <<: *ref_pcb_choc_key_params
+          hotswap: tp_key_inner_home_hotswap
+        adjust:
+          rotate: tp_key_inner_home_rotation
+
+      diode: &ref_pcb_diode
         what: infused-kim/diode
-        where: [key_tp_flipped]
+        where: [key, /^key_.*/]
         params:
           from: "{{colrow}}"
           to: "{{row_net}}"
           include_tht: false
         adjust:
-          shift: [0, flipped_key_diode_y]
+          shift: [0, 3.8]
 
+      diode_tp_index_top:
+        <<: *ref_pcb_diode
+        where: matrix_index_top
+        adjust:
+          shift: [0, tp_key_index_top_diode_y]
+
+      diode_tp_index_home:
+        <<: *ref_pcb_diode
+        where: matrix_index_home
+        adjust:
+          shift: [0, tp_key_index_home_diode_y]
+
+      diode_tp_inner_top:
+        <<: *ref_pcb_diode
+        where: matrix_inner_top
+        adjust:
+          shift: [0, tp_key_inner_top_diode_y]
+
+      diode_tp_inner_home:
+        <<: *ref_pcb_diode
+        where: matrix_inner_home
+        adjust:
+          shift: [0, tp_key_inner_home_diode_y]
 
       # Controller Area
       trackpoint_mount:
