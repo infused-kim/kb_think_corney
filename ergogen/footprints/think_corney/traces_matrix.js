@@ -1,6 +1,7 @@
 module.exports = {
     params: {
       designator: 'T',
+      profile: 0,
     },
     body: p => {
         const get_at_coordinates = () => {
@@ -36,7 +37,7 @@ module.exports = {
             return point_str;
         }
 
-        const traces = `
+        const traces_kim = `
             (segment (start ${ adjust_point(21.656997, 4.617649) }) (end ${ adjust_point(21.656997, -7.398898) }) (width 0.25) (layer "F.Cu") (net 5))
             (segment (start ${ adjust_point(-95.689638, 19.189505) }) (end ${ adjust_point(-95.304712, 24.694135) }) (width 0.25) (layer "F.Cu") (net 5))
             (segment (start ${ adjust_point(-92.903792, 34.300065) }) (end ${ adjust_point(-94.50426, 36.141192) }) (width 0.25) (layer "F.Cu") (net 5))
@@ -380,6 +381,19 @@ module.exports = {
             (segment (start ${ adjust_point(3.826945, 44.307599) }) (end ${ adjust_point(10.694039, 51.174694) }) (width 0.25) (layer "B.Cu") (net 20))
         `
 
-        return traces;
+        const profiles = [
+            '', // 0 - No traces
+            '', // 1 - Corne Choc
+            '', // 2 - Corne Choc MX Spacing
+            '', // 3 - Chocofi
+            traces_kim, // 4 - Kim
+        ]
+
+        let traces = ''
+        if(p.profile < profiles.length) {
+            traces = profiles.at(p.profile)
+        }
+
+        return traces
     }
   }

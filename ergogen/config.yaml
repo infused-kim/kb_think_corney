@@ -76,6 +76,9 @@ presets:
     cfg_breakoff_coulmn_inner_y: 7.5
     cfg_breakoff_column_outer_y: 7.5
 
+    # Traces selector
+    cfg_traces_matrix_profile: 2
+
   corne_choc_mx_spacing:
     $extends: presets.corne_choc
 
@@ -98,6 +101,9 @@ presets:
     cfg_breakoff_column_outer_y: 8.5
     cfg_breakoff_coulmn_inner_y: 8.5
 
+    # Traces selector
+    cfg_traces_matrix_profile: 1
+
   chocofi:
     $extends: presets.corne_choc
 
@@ -113,8 +119,10 @@ presets:
 
     # Spacing required for outline to get a straight edge for the inner side
     cfg_thumb_edge_offset: 0
-
     cfg_pcb_outline_padding_right: 1.2
+
+    # Traces selector
+    cfg_traces_matrix_profile: 3
 
   kim:
     $extends: presets.corne_choc
@@ -164,6 +172,9 @@ presets:
     # Mounting Holes
     cfg_mounting_hole_thumb_inner_shift_y: +3
     cfg_mounting_hole_pinky_shift_y: +cfg_ky - 5
+
+    # Traces selector
+    cfg_traces_matrix_profile: 4
 
 units:
   $extends: settings.preset
@@ -238,6 +249,10 @@ units:
   edge_thumb_cluster_top_shift_y: cfg_edge_thumb_cluster_top_shift_y
   edge_thumb_cluster_bottom_shift_x: cfg_edge_thumb_cluster_bottom_shift_x
   edge_thumb_cluster_bottom_shift_y: cfg_edge_thumb_cluster_bottom_shift_y
+
+
+  # Traces selector
+  traces_matrix_profile: cfg_traces_matrix_profile
 
   # Font units
   font_x: 1
@@ -716,6 +731,8 @@ pcbs:
       traces_matrix:
         what: think_corney/traces_matrix
         where: matrix_inner_top
+        params:
+          profile: traces_matrix_profile
 
       # Controller
       promicro:
