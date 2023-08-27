@@ -40,6 +40,10 @@ ergogen: ## Run ergogen
 	@echo "Running ergogen..."
 	@ergogen ./ergogen -o ./ergogen/output
 
+ergogen-debug: ## Run ergogen
+	@echo "Running ergogen in debug mode..."
+	@ergogen ./ergogen -o ./ergogen/output -d
+
 ergogen-deploy: ## Copy ergogen output to pcb folder
 	@echo "Copying ergogen generated PCB to pcb/..."
 	@cp -r ./ergogen/output/pcbs/*.kicad_pcb pcb/
