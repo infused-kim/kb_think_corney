@@ -698,6 +698,24 @@ pcbs:
         outline: pcb
 
     footprints:
+      # Traces
+      traces_choc_hotswap:
+        what: think_corney/key_traces
+        where: [key, key_outer_pads, key_pinky_pads]
+        adjust:
+          shift: [0,0]
+          rotate: -180
+
+      traces_choc_hotswap_thumb_inner:
+        what: think_corney/key_traces
+        where: [key_thumb_inner]
+        adjust:
+          shift: [0,0]
+          rotate: -180
+
+      traces_matrix:
+        what: think_corney/traces_matrix
+        where: matrix_inner_top
 
       # Controller
       promicro:
@@ -757,13 +775,6 @@ pcbs:
           shift: [0,0]
           rotate: -180
 
-      choc_hotswap_traces:
-        what: think_corney/key_traces
-        where: [key, key_outer_pads, key_pinky_pads]
-        adjust:
-          shift: [0,0]
-          rotate: -180
-
       # 1.5u thumb key
       choc_hotswap_thumb_inner:
         what: infused-kim/choc
@@ -776,13 +787,6 @@ pcbs:
           keycaps_y: keycaps_thumb_inner_y
           from: "{{column_net}}"
           to: "{{colrow}}"
-        adjust:
-          shift: [0,0]
-          rotate: -180
-
-      choc_hotswap_thumb_inner_traces:
-        what: think_corney/key_traces
-        where: [key_thumb_inner]
         adjust:
           shift: [0,0]
           rotate: -180
