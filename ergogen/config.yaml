@@ -13,6 +13,10 @@ settings:
 
 presets:
   corne_choc:
+    # Defaults
+    cfg_diode_y: 3.8
+    cfg_key_rotation: -180
+
     # Stagger
     cfg_stagger_outer: 0
     cfg_stagger_pinky: 0
@@ -39,25 +43,25 @@ presets:
     cfg_keycaps_x: 17.5
     cfg_keycaps_y: 16.5
 
-    # Diode position (don't change used for calculations)
-    cfg_diode_y: 3.8
-
     # Adjustments for keys around trackpoint mount
     cfg_tp_key_index_top_hotswap: 1
-    cfg_tp_key_index_top_rotation: 0
-    cfg_tp_key_index_top_diode_y: -1 * cfg_diode_y
+    cfg_tp_key_index_top_rotation: cfg_key_rotation
+    cfg_tp_key_index_top_diode_y: cfg_diode_y
     cfg_tp_key_index_top_trace_variation: 0
 
     cfg_tp_key_index_home_hotswap: 0
-    cfg_tp_key_index_home_rotation: 0
-    cfg_tp_key_index_home_trace_variation: 1
+    cfg_tp_key_index_home_rotation: cfg_key_rotation
+    cfg_tp_key_index_home_diode_y: -1 * cfg_diode_y
+    cfg_tp_key_index_home_trace_variation: 0
 
     cfg_tp_key_inner_top_hotswap: 0
     cfg_tp_key_inner_top_rotation: 0
-    cfg_tp_key_inner_top_trace_variation: 1
+    cfg_tp_key_inner_top_diode_y: cfg_diode_y
+    cfg_tp_key_inner_top_trace_variation: 0
 
     cfg_tp_key_inner_home_hotswap: 1
-    cfg_tp_key_inner_home_rotation: 0
+    cfg_tp_key_inner_home_rotation: cfg_key_rotation
+    cfg_tp_key_inner_home_diode_y: -1 * cfg_diode_y
     cfg_tp_key_inner_home_trace_variation: 0
 
     # Thumb Cluster offset from bottom index finger key
@@ -160,27 +164,6 @@ presets:
     cfg_splay_thumb_home: 0
     cfg_splay_thumb_inner: -15
 
-    # Adjustments for keys around trackpoint mount
-    cfg_tp_key_index_top_hotswap: 1
-    cfg_tp_key_index_top_rotation: 180
-    cfg_tp_key_index_top_diode_y: cfg_diode_y
-    cfg_tp_key_index_top_trace_variation: 0
-
-    cfg_tp_key_index_home_hotswap: 0
-    cfg_tp_key_index_home_rotation: 0
-    cfg_tp_key_index_home_diode_y: cfg_diode_y
-    cfg_tp_key_index_home_trace_variation: 1
-
-    cfg_tp_key_inner_top_hotswap: 0
-    cfg_tp_key_inner_top_rotation: 0
-    cfg_tp_key_inner_top_diode_y: cfg_diode_y
-    cfg_tp_key_inner_top_trace_variation: 1
-
-    cfg_tp_key_inner_home_hotswap: 1
-    cfg_tp_key_inner_home_rotation: 180
-    cfg_tp_key_inner_home_diode_y: cfg_diode_y
-    cfg_tp_key_inner_home_trace_variation: 0
-
     # Thumb Cluster offset from bottom index finger key
     cfg_thumb_cluster_offset_x: -8.5
     cfg_thumb_cluster_offset_y: -21
@@ -212,6 +195,10 @@ presets:
 
 units:
   $extends: settings.preset
+
+  # Defaults
+  diode_y: cfg_diode_y
+  key_rotation: cfg_key_rotation
 
   # Stagger
   stagger_outer: cfg_stagger_outer
@@ -772,14 +759,14 @@ pcbs:
         where: [key, key_outer_pads, key_pinky_pads]
         adjust:
           shift: [0,0]
-          rotate: -180
+          rotate: key_rotation
 
       traces_choc_hotswap_thumb_inner:
         what: think_corney/key_traces
         where: [key_thumb_inner]
         adjust:
           shift: [0,0]
-          rotate: -180
+          rotate: key_rotation
 
       traces_matrix:
         what: think_corney/traces_matrix
@@ -843,7 +830,7 @@ pcbs:
           to: "{{colrow}}"
         adjust:
           shift: [0,0]
-          rotate: -180
+          rotate: cfg_key_rotation
 
       # 1.5u thumb key
       choc_hotswap_thumb_inner:
@@ -915,7 +902,7 @@ pcbs:
           to: "{{row_net}}"
           include_tht: false
         adjust:
-          shift: [0, 3.8]
+          shift: [0, diode_y]
 
       diode_tp_index_top:
         <<: *ref_pcb_diode
