@@ -383,6 +383,8 @@ module.exports = {
             (segment (start ${ adjust_point(-15.59, 17.668729) }) (end ${ adjust_point(-15.59, 8.707593) }) (width 0.25) (layer "F.Cu") (net 18))
             (segment (start ${ adjust_point(-15.59, 8.707593) }) (end ${ adjust_point(-17.61, 6.687593) }) (width 0.25) (layer "F.Cu") (net 18))
             (via (at ${ adjust_point(-17.61, 6.687593) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 18))
+            (segment (start ${ adjust_point(-37.645957, 19.303034) }) (end ${ adjust_point(-38.49, 18.458991) }) (width 0.25) (layer "B.Cu") (net 19))
+
         `
 
         const profiles = [

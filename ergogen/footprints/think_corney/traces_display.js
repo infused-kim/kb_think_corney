@@ -99,6 +99,14 @@ module.exports = {
             (segment (start ${ adjust_point(-2.54, 16.7) }) (end ${ adjust_point(-2.54, 19.15) }) (width 0.25) (layer "B.Cu") (net 69))
             (segment (start ${ adjust_point(2.54, 16.7) }) (end ${ adjust_point(2.54, 19.15) }) (width 0.25) (layer "B.Cu") (net 70))
             (segment (start ${ adjust_point(5.08, 16.7) }) (end ${ adjust_point(5.08, 19.15) }) (width 0.25) (layer "B.Cu") (net 71))
+            (segment (start ${ adjust_point(-5.08, 19.15) }) (end ${ adjust_point(-5.08, 16.7) }) (width 0.25) (layer "F.Cu") (net 68) (tstamp e2f4d593-dde8-420a-9488-d28699ce8f30))
+
+            (segment (start ${ adjust_point(-2.54, 19.15) }) (end ${ adjust_point(-2.54, 16.7) }) (width 0.25) (layer "F.Cu") (net 69))
+
+            (segment (start ${ adjust_point(2.54, 19.15) }) (end ${ adjust_point(2.54, 16.7) }) (width 0.25) (layer "F.Cu") (net 70))
+
+            (segment (start ${ adjust_point(5.08, 19.15) }) (end ${ adjust_point(5.08, 16.7) }) (width 0.25) (layer "F.Cu") (net 71))
+
         `
 
         return traces
