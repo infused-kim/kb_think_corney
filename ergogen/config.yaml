@@ -774,6 +774,10 @@ pcbs:
         what: think_corney/traces_battery
         where: batc
 
+      traces_tp_conn:
+        what: think_corney/traces_tp_conn
+        where: tp_conn
+
       traces_choc_hotswap:
         what: think_corney/key_traces
         where: [key, key_outer_pads, key_pinky_pads]
