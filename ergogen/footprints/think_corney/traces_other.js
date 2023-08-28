@@ -92,7 +92,7 @@ module.exports = {
             (segment (start ${ adjust_point(-4.9, 33.129541) }) (end ${ adjust_point(-5.070459, 33.3) }) (width 0.25) (layer "F.Cu") (net 14))
             (segment (start ${ adjust_point(1.195, 19.194986) }) (end ${ adjust_point(-0.1305, 20.520486) }) (width 0.25) (layer "F.Cu") (net 14))
             (segment (start ${ adjust_point(-0.1305, 20.520486) }) (end ${ adjust_point(-0.1305, 25.8955) }) (width 0.25) (layer "F.Cu") (net 14))
-            (via (at ${ adjust_point(-5.070459, 33.3) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 14))
+            (via (at ${ adjust_point(-5.1, 33.3) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 14))
             (via (at ${ adjust_point(-4.9, 25.9) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 14))
             (via (at ${ adjust_point(-0.1305, 25.8955) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 14))
             (segment (start ${ adjust_point(-0.1305, 25.8955) }) (end ${ adjust_point(-4.8955, 25.8955) }) (width 0.25) (layer "B.Cu") (net 14))
