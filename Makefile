@@ -1,7 +1,9 @@
 KB_NAME = "ThinkCorney"
 PCB_FILE_NAME = think_corney.kicad_pcb
 KICAD_PY_PATH = /Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3
+KICAD_CLI_PATH = /Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli
 
+GERBERS_PATH = ./gerbers/think_corney_gerbers
 BACKUP_PATH = backups/backup_$(shell date +"%Y-%m-%d_%H_%M_%S")
 LAST_BACKUP_PATH = $(shell /bin/ls -td backups/*/ | head -n 1)
 
@@ -65,6 +67,17 @@ restore-traces: ## Restores traces from latest backup
 restore-kicad-proj: ## Restored think_corney.kicad_proj from git history
 	@echo "Restoring kicad_proj..."
 	git checkout pcb/think_corney.kicad_pro
+
+gerbers: ## Generate gerber files
+	@echo "Cleaning up old gerbers..."
+	@rm -rf $(GERBERS_PATH)
+	@mkdir -p $(GERBERS_PATH)
+	@echo "Generating gerbers..."
+	@$(KICAD_CLI_PATH) pcb export gerbers pcb/$(PCB_FILE_NAME) -o $(GERBERS_PATH)/
+	@echo "Generating drill files..."
+	@$(KICAD_CLI_PATH) pcb export drill pcb/$(PCB_FILE_NAME) -o $(GERBERS_PATH)/
+	@echo "Compressing gerbers..."
+	zip -r $(GERBERS_PATH).zip $(GERBERS_PATH)
 
 convert-stl: ## Convert erogen jscad files to stl
 	@echo "Converting jscad files to stl..."
