@@ -13,6 +13,9 @@ settings:
 
 presets:
   corne_choc:
+    # Traces selector
+    cfg_traces_matrix_profile: 1
+
     # Defaults
     cfg_diode_y: 3.8
     cfg_key_rotation: -180
@@ -46,22 +49,30 @@ presets:
     # Adjustments for keys around trackpoint mount
     cfg_tp_key_index_top_hotswap: 1
     cfg_tp_key_index_top_rotation: cfg_key_rotation
+    cfg_tp_key_index_top_rotation_trace: cfg_key_rotation
+    cfg_tp_key_index_top_rotation_diode: 0
     cfg_tp_key_index_top_diode_y: cfg_diode_y
     cfg_tp_key_index_top_trace_variation: 0
 
     cfg_tp_key_index_home_hotswap: 0
     cfg_tp_key_index_home_rotation: cfg_key_rotation
+    cfg_tp_key_index_home_rotation_trace: 0
+    cfg_tp_key_index_home_rotation_diode: -180
     cfg_tp_key_index_home_diode_y: -1 * cfg_diode_y
-    cfg_tp_key_index_home_trace_variation: 0
+    cfg_tp_key_index_home_trace_variation: 1
 
     cfg_tp_key_inner_top_hotswap: 0
     cfg_tp_key_inner_top_rotation: 0
+    cfg_tp_key_inner_top_rotation_trace: cfg_key_rotation
+    cfg_tp_key_inner_top_rotation_diode: 0
     cfg_tp_key_inner_top_diode_y: cfg_diode_y
-    cfg_tp_key_inner_top_trace_variation: 0
+    cfg_tp_key_inner_top_trace_variation: 1
 
     cfg_tp_key_inner_home_hotswap: 1
     cfg_tp_key_inner_home_rotation: cfg_key_rotation
-    cfg_tp_key_inner_home_diode_y: -1 * cfg_diode_y
+    cfg_tp_key_inner_home_rotation_trace: cfg_key_rotation
+    cfg_tp_key_inner_home_rotation_diode: 0
+    cfg_tp_key_inner_home_diode_y: cfg_diode_y
     cfg_tp_key_inner_home_trace_variation: 0
 
     # Thumb Cluster offset from bottom index finger key
@@ -97,11 +108,11 @@ presets:
     cfg_breakoff_coulmn_inner_y: 7.5
     cfg_breakoff_column_outer_y: 7.5
 
-    # Traces selector
-    cfg_traces_matrix_profile: 2
-
   corne_choc_mx_spacing:
     $extends: presets.corne_choc
+
+    # Traces selector
+    cfg_traces_matrix_profile: 2
 
     # Key size
     cfg_kx: u
@@ -122,11 +133,11 @@ presets:
     cfg_breakoff_column_outer_y: 8.5
     cfg_breakoff_coulmn_inner_y: 8.5
 
-    # Traces selector
-    cfg_traces_matrix_profile: 1
-
   chocofi:
     $extends: presets.corne_choc
+
+    # Traces selector
+    cfg_traces_matrix_profile: 3
 
     # Stagger
     cfg_stagger_ring: 12
@@ -142,11 +153,11 @@ presets:
     cfg_thumb_edge_offset: 0
     cfg_pcb_outline_padding_right: 1.2
 
-    # Traces selector
-    cfg_traces_matrix_profile: 3
-
   kim:
     $extends: presets.corne_choc
+
+    # Traces selector
+    cfg_traces_matrix_profile: 4
 
     # Stagger
     cfg_stagger_ring: 15
@@ -190,9 +201,6 @@ presets:
     cfg_mounting_hole_thumb_inner_shift_y: +3
     cfg_mounting_hole_pinky_shift_y: +cfg_ky - 5
 
-    # Traces selector
-    cfg_traces_matrix_profile: 4
-
 units:
   $extends: settings.preset
 
@@ -224,22 +232,30 @@ units:
   # Adjustments for keys around trackpoint mount
   tp_key_index_top_hotswap: cfg_tp_key_index_top_hotswap
   tp_key_index_top_rotation: cfg_tp_key_index_top_rotation
+  tp_key_index_top_rotation_trace: cfg_tp_key_index_top_rotation_trace
+  tp_key_index_top_rotation_diode: cfg_tp_key_index_top_rotation_diode
   tp_key_index_top_diode_y: cfg_tp_key_index_top_diode_y
   tp_key_index_top_trace_variation: cfg_tp_key_index_top_trace_variation
 
   tp_key_index_home_hotswap: cfg_tp_key_index_home_hotswap
   tp_key_index_home_rotation: cfg_tp_key_index_home_rotation
+  tp_key_index_home_rotation_trace: cfg_tp_key_index_home_rotation_trace
+  tp_key_index_home_rotation_diode: cfg_tp_key_index_home_rotation_diode
   tp_key_index_home_diode_y: cfg_tp_key_index_home_diode_y
   tp_key_index_home_trace_variation: cfg_tp_key_index_home_trace_variation
 
   tp_key_inner_top_hotswap: cfg_tp_key_inner_top_hotswap
   tp_key_inner_top_rotation: cfg_tp_key_inner_top_rotation
+  tp_key_inner_top_rotation_trace: cfg_tp_key_inner_top_rotation_trace
+  tp_key_inner_top_rotation_diode: cfg_tp_key_inner_top_rotation_diode
   tp_key_inner_top_diode_y: cfg_tp_key_inner_top_diode_y
 
   tp_key_inner_top_trace_variation: cfg_tp_key_inner_top_trace_variation
 
   tp_key_inner_home_hotswap: cfg_tp_key_inner_home_hotswap
   tp_key_inner_home_rotation: cfg_tp_key_inner_home_rotation
+  tp_key_inner_home_rotation_trace: cfg_tp_key_inner_home_rotation_trace
+  tp_key_inner_home_rotation_diode: cfg_tp_key_inner_home_rotation_diode
   tp_key_inner_home_diode_y: cfg_tp_key_inner_home_diode_y
   tp_key_inner_home_trace_variation: cfg_tp_key_inner_home_trace_variation
 
@@ -768,6 +784,42 @@ pcbs:
           shift: [0,0]
           rotate: key_rotation
 
+      traces_choc_tp_index_top:
+        what: think_corney/key_traces
+        where: [matrix_index_top]
+        params:
+          variation: tp_key_index_top_trace_variation
+        adjust:
+          shift: [0,0]
+          rotate: tp_key_index_top_rotation_trace
+
+      traces_choc_tp_index_home:
+        what: think_corney/key_traces
+        where: [matrix_index_home]
+        params:
+          variation: tp_key_index_home_trace_variation
+        adjust:
+          shift: [0,0]
+          rotate: tp_key_index_home_rotation_trace
+
+      traces_choc_tp_inner_top:
+        what: think_corney/key_traces
+        where: [matrix_inner_top]
+        params:
+          variation: tp_key_inner_top_trace_variation
+        adjust:
+          shift: [0,0]
+          rotate: tp_key_inner_top_rotation_trace
+
+      traces_choc_tp_inner_home:
+        what: think_corney/key_traces
+        where: [matrix_inner_home]
+        params:
+          variation: tp_key_inner_home_trace_variation
+        adjust:
+          shift: [0,0]
+          rotate: tp_key_inner_home_rotation_trace
+
       traces_matrix:
         what: think_corney/traces_matrix
         where: matrix_inner_top
@@ -909,24 +961,28 @@ pcbs:
         where: matrix_index_top
         adjust:
           shift: [0, tp_key_index_top_diode_y]
+          rotate: tp_key_index_top_rotation_diode
 
       diode_tp_index_home:
         <<: *ref_pcb_diode
         where: matrix_index_home
         adjust:
           shift: [0, tp_key_index_home_diode_y]
+          rotate: tp_key_index_home_rotation_diode
 
       diode_tp_inner_top:
         <<: *ref_pcb_diode
         where: matrix_inner_top
         adjust:
           shift: [0, tp_key_inner_top_diode_y]
+          rotate: tp_key_inner_top_rotation_diode
 
       diode_tp_inner_home:
         <<: *ref_pcb_diode
         where: matrix_inner_home
         adjust:
           shift: [0, tp_key_inner_home_diode_y]
+          rotate: tp_key_inner_home_rotation_diode
 
       # Controller Area
       trackpoint_mount:
