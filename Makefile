@@ -30,6 +30,8 @@ build-nt: ## Same as `build`, but don't restore traces
 	@$(MAKE) update-pcb
 	@echo "\n"
 	@$(MAKE) lock-traces
+	@echo "\n"
+	@$(MAKE) restore-kicad-proj
 
 backup: ## Backups the current pcb folder
 	@echo "Creating backup $(BACKUP_PATH)..."
@@ -59,6 +61,10 @@ lock-traces: ## Locks all traces in pcb file
 restore-traces: ## Restores traces from latest backup
 	@echo "Restoring traces..."
 	@$(KICAD_PY_PATH) resources/kb_ergogen_helper/ergogen_helper.py --no-backup copy-traces --unlocked-only $(LAST_BACKUP_PATH)/$(PCB_FILE_NAME) pcb/$(PCB_FILE_NAME)
+
+restore-kicad-proj: ## Restored think_corney.kicad_proj from git history
+	@echo "Restoring kicad_proj..."
+	git checkout pcb/think_corney.kicad_pro
 
 convert-stl: ## Convert erogen jscad files to stl
 	@echo "Converting jscad files to stl..."
