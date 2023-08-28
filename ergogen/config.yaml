@@ -838,6 +838,10 @@ pcbs:
         params:
           profile: traces_matrix_profile
 
+      traces_other:
+        what: think_corney/traces_other
+        where: mcu
+
       # Controller
       promicro:
         what: infused-kim/nice_nano_pretty
