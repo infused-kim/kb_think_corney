@@ -38,23 +38,15 @@ module.exports = {
         }
 
         const traces = `
-            (segment (start ${ adjust_point(-0.949808, 0) }) (end ${ adjust_point(0.025498, -0.975306) }) (width 0.25) (layer "F.Cu") (net 1))
+            (segment (start ${ adjust_point(-0.895498, 0) }) (end ${ adjust_point(-0.005498, -0.89) }) (width 0.25) (layer "F.Cu") (net 1))
             (segment (start ${ adjust_point(-1.25, 1.225) }) (end ${ adjust_point(-0.6, 1.875) }) (width 0.25) (layer "F.Cu") (net 1))
-            (segment (start ${ adjust_point(-1.25, 0) }) (end ${ adjust_point(-0.949808, 0) }) (width 0.25) (layer "F.Cu") (net 1))
-            (segment (start ${ adjust_point(-1.25, 0) }) (end ${ adjust_point(-1.25, 1.225) }) (width 0.25) (layer "F.Cu") (net 1))
-            (via (at ${ adjust_point(0.025498, -0.975306) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 1))
+            (via (at ${ adjust_point(-0.005498, -0.89) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 1))
             (segment (start ${ adjust_point(1.25, 1.225) }) (end ${ adjust_point(0.6, 1.875) }) (width 0.25) (layer "B.Cu") (net 1))
-            (segment (start ${ adjust_point(1.25, 0) }) (end ${ adjust_point(1.25, 1.225) }) (width 0.25) (layer "B.Cu") (net 1))
-            (segment (start ${ adjust_point(0.025498, -0.975306) }) (end ${ adjust_point(0.274694, -0.975306) }) (width 0.25) (layer "B.Cu") (net 1))
-            (segment (start ${ adjust_point(0.274694, -0.975306) }) (end ${ adjust_point(1.25, 0) }) (width 0.25) (layer "B.Cu") (net 1))
+            (segment (start ${ adjust_point(0.884502, 0) }) (end ${ adjust_point(-0.005498, -0.89) }) (width 0.25) (layer "B.Cu") (net 1))
             (segment (start ${ adjust_point(1.25, 1.225) }) (end ${ adjust_point(0.6, 1.875) }) (width 0.25) (layer "F.Cu") (net 2))
-            (segment (start ${ adjust_point(0.261664, 0.988336) }) (end ${ adjust_point(1.25, 0) }) (width 0.25) (layer "F.Cu") (net 2))
-            (segment (start ${ adjust_point(1.25, 0) }) (end ${ adjust_point(1.25, 1.225) }) (width 0.25) (layer "F.Cu") (net 2))
-            (segment (start ${ adjust_point(0.01685, 0.988336) }) (end ${ adjust_point(0.261664, 0.988336) }) (width 0.25) (layer "F.Cu") (net 2))
-            (via (at ${ adjust_point(0.01685, 0.988336) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 2))
-            (segment (start ${ adjust_point(-0.971486, 0) }) (end ${ adjust_point(0.01685, 0.988336) }) (width 0.25) (layer "B.Cu") (net 2))
-            (segment (start ${ adjust_point(-1.25, 0) }) (end ${ adjust_point(-1.25, 1.225) }) (width 0.25) (layer "B.Cu") (net 2))
-            (segment (start ${ adjust_point(-1.25, 0) }) (end ${ adjust_point(-0.971486, 0) }) (width 0.25) (layer "B.Cu") (net 2))
+            (segment (start ${ adjust_point(0.834502, 0) }) (end ${ adjust_point(-0.005498, 0.84) }) (width 0.25) (layer "F.Cu") (net 2))
+            (via (at ${ adjust_point(-0.005498, 0.84) }) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 2))
+            (segment (start ${ adjust_point(-0.845498, 0) }) (end ${ adjust_point(-0.005498, 0.84) }) (width 0.25) (layer "B.Cu") (net 2))
             (segment (start ${ adjust_point(-1.25, 1.225) }) (end ${ adjust_point(-0.6, 1.875) }) (width 0.25) (layer "B.Cu") (net 2))
         `
 
