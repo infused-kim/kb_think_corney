@@ -383,8 +383,8 @@ units:
   bat_conn_hole_yo: 0.5 * bat_conn_hole_y
 
   # Mounting Holes
-  mounting_hole_outline: 0.25
-  mounting_hole_drill: 4.0
+  mounting_hole_outline: 0.9
+  mounting_hole_drill: 2.2
   mounting_hole_x: mounting_hole_drill + mounting_hole_outline * 2
   mounting_hole_y: mounting_hole_x
   mounting_hole_xo: 0.5 * mounting_hole_x
