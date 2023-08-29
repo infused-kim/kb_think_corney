@@ -376,7 +376,7 @@ units:
   # Battery Connector Hole
   bat_conn_hole_outline: 0.25
   bat_conn_hole_drill_x: 2
-  bat_conn_hole_drill_y: 4
+  bat_conn_hole_drill_y: 4.5
   bat_conn_hole_x: bat_conn_hole_drill_x + bat_conn_hole_outline * 2
   bat_conn_hole_y: bat_conn_hole_drill_y + bat_conn_hole_outline * 2
   bat_conn_hole_xo: 0.5 * bat_conn_hole_x
@@ -632,7 +632,7 @@ points:
     battery_conn_hole:
       anchor:
         ref: disp
-        shift: [-disp_xo - bat_conn_hole_xo - 0.5, -disp_yo + 0.8]
+        shift: [-disp_xo - bat_conn_hole_xo - 0.5, -disp_yo + 0.5]
       key:
         name: batc_hole
         width: bat_conn_hole_x
@@ -641,7 +641,7 @@ points:
     battery_conn:
       anchor:
         ref: display_cover_hole_left
-        shift: [-1, -bat_conn_hole_yo - batc_yo - 2]
+        shift: [-1, -batc_yo - 4.25]
       key:
         name: batc
         width: batc_x
