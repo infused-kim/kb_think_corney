@@ -668,7 +668,7 @@ points:
     reset_switch:
       anchor:
         ref: sw_power
-        shift: [+sw_power_xo - sw_reset_xo - 0.1, +sw_power_yo + 1 + sw_reset_yo]
+        shift: [+0.35, +sw_power_yo + 1 + sw_reset_yo]
       key:
         name: sw_reset
         width: sw_reset_x
